@@ -5,54 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda</title>
     <link rel="stylesheet" href="static/css/styles.css">
-    <script src="static/js/script.js" defer></script>
 </head>
 <body>
     <div class="invitation-container">
         <div class="invitation-header">
-            <h1>¡Nos Casamos!</h1>
-            <h2>Camila y Jaidden</h2>
+            <h1>Camila & Jaidden</h1>
+            <h2>¡Te invitamos a nuestra boda!</h2>
         </div>
-        <img src="static/images/pareja.jpg" alt="Imagen de la pareja" class="couple-image">
+        
+        <img src="static/images/pareja.jpg" alt="Pareja" class="couple-image">
         
         <div class="audio-container">
-            <button class="audio-button" id="play-pause-button">
+            <button class="audio-button" id="playPauseButton">
                 <span class="play-icon">▶️</span>
                 <span class="audio-status">Reproducir Música</span>
             </button>
             <audio id="audio" src="static/Music/Music.m4a"></audio>
         </div>
-
+        
         <div class="countdown">
             <div class="countdown-title">Faltan:</div>
-            <div class="countdown-time">
+            <div class="countdown-time" id="countdown">
                 <div class="time-block">
-                    <span id="days">00</span>
+                    <span id="days">0</span>
                     <span class="label">Días</span>
                 </div>
                 <div class="separator">:</div>
                 <div class="time-block">
-                    <span id="hours">00</span>
+                    <span id="hours">0</span>
                     <span class="label">Horas</span>
                 </div>
                 <div class="separator">:</div>
                 <div class="time-block">
-                    <span id="minutes">00</span>
+                    <span id="minutes">0</span>
                     <span class="label">Minutos</span>
                 </div>
                 <div class="separator">:</div>
                 <div class="time-block">
-                    <span id="seconds">00</span>
+                    <span id="seconds">0</span>
                     <span class="label">Segundos</span>
                 </div>
             </div>
         </div>
-
+        
         <div class="invitation-details">
-            <p>Te esperamos en nuestra boda el 25 de octubre de 2025.</p>
+            <p>Fecha: 25 de octubre de 2025</p>
+            <p>Hora: 5:00 PM</p>
+            <p>Lugar: [Lugar de la boda]</p>
         </div>
-
-        <a href="confirmacion.html" class="confirmation-button">Confirmar Asistencia</a>
+        
+        <button class="confirmation-button" onclick="location.href='confirmation.html'">Confirmar Asistencia</button>
     </div>
+    
+    <script src="static/js/script.js"></script>
 </body>
 </html>

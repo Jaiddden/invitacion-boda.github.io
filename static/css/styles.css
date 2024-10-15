@@ -1,15 +1,23 @@
-/* Estilos generales */
+/* Separadores personalizados */
+.custom-separator {
+    border: none;
+    border-top: 2px solid #c2a386; /* Color suave */
+    margin: 50px 0; /* Aumentar el margen superior e inferior */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Otros estilos */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
-    margin: 0; /* Eliminar márgenes del body */
 }
 
 .invitation-container {
     background-color: #ffffff;
-    /* border: 5px solid #f1c40f; /* Comentar o eliminar esta línea para quitar el borde */
     border-radius: 15px;
-    padding: 20px; /* Ajusta el padding */
+    padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: auto;
@@ -35,75 +43,39 @@ body {
     margin-bottom: 20px;
 }
 
-.audio-container {
-    position: relative;
-    text-align: center;
-    margin: 20px 0;
-}
-
-.audio-button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background-color: #25D366;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-}
-
-.audio-button:hover {
-    background-color: #128C7E;
-}
-
-/* Icono de reproducción */
-.play-icon {
-    font-size: 1.5em;
-    margin-right: 10px;
-}
-
-/* Estado de audio */
-.audio-status {
-    font-size: 1em;
-}
-
-/* Contador de cuenta regresiva */
 .countdown {
-    font-size: 0.8em; /* Tamaño más pequeño para el temporizador */
+    font-size: 1em; /* Tamaño más pequeño para los números */
     margin: 20px 0;
 }
 
 .countdown-title {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Tamaño del título "Faltan" */
 }
 
 .countdown-time {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-end; /* Alinea las etiquetas con los números */
 }
 
 .time-block {
-    margin: 0 5px;
-    text-align: center;
+    margin: 0 5px; /* Espaciado entre los bloques de tiempo */
+    text-align: center; /* Centra el texto */
 }
 
 .countdown-time span {
-    font-size: 1.2em; /* Tamaño más pequeño para los números */
+    font-size: 1.5em; /* Tamaño de los números */
 }
 
 .separator {
-    font-size: 1.5em;
-    margin: 0 10px;
+    font-size: 1.5em; /* Tamaño de los dos puntos */
+    margin: 0 10px; /* Espacio a los lados de los dos puntos */
 }
 
 .label {
-    font-size: 0.8em;
-    display: block;
-    margin-top: 5px;
+    font-size: 0.8em; /* Tamaño más pequeño para las etiquetas */
+    display: block; /* Muestra las etiquetas en línea vertical */
+    margin-top: 5px; /* Espacio encima de las etiquetas */
 }
 
 .invitation-details {
@@ -124,56 +96,84 @@ body {
 }
 
 .confirmation-button:hover {
-    background-color: #f1c40f;
+    background-color: #f1c40f; /* Cambia de color al pasar el mouse */
 }
 
-/* Separador personalizado */
-.custom-separator {
+/* Estilos para el botón de audio */
+.audio-container {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.audio-button {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #25D366;
     border: none;
-    border-top: 2px solid #c2a386;
-    margin: 50px 0;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 25px; /* Bordes redondeados */
+    color: white;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
+    overflow: hidden; /* Oculta el contenido que se sale del borde */
 }
 
-/* Estilos responsivos */
+.audio-button:hover {
+    background-color: #128C7E;
+    transform: scale(1.05); /* Agranda el botón al pasar el mouse */
+}
+
+.audio-button:active {
+    transform: scale(0.95); /* Efecto de presión */
+}
+
+.play-icon {
+    font-size: 1.5em; /* Tamaño del icono */
+    margin-right: 10px;
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+/* Efecto de onda sonora */
+@keyframes wave {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.audio-status {
+    font-size: 1em;
+    transition: color 0.3s ease; /* Transición suave para el texto */
+}
+
+/* Cuando la música está reproduciéndose */
+.audio-playing .play-icon {
+    animation: wave 1s infinite; /* Animación de onda */
+    color: #f1c40f; /* Cambia el color del icono cuando se está reproduciendo */
+}
+
+.audio-playing .audio-status {
+    color: #f1c40f; /* Cambia el color del texto cuando se está reproduciendo */
+}
+
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
     .invitation-container {
-        padding: 15px; /* Menos padding en pantallas pequeñas */
-    }
-
-    .invitation-header h1 {
-        font-size: 2em; /* Tamaño más pequeño del título */
-    }
-
-    .invitation-header h2 {
-        font-size: 1.2em; /* Tamaño más pequeño del subtítulo */
-    }
-
-    .audio-button {
-        padding: 8px; /* Ajuste en el padding para pantallas pequeñas */
-        font-size: 0.9em; /* Tamaño de fuente más pequeño */
-    }
-
-    .play-icon {
-        font-size: 1.2em; /* Tamaño más pequeño del icono */
+        padding: 20px;
     }
 
     .countdown-time span {
-        font-size: 1.2em; /* Tamaño más pequeño para los números */
-    }
-
-    .separator {
-        font-size: 1.2em; /* Tamaño de los dos puntos */
+        font-size: 1.2em; /* Tamaño más pequeño en móvil */
     }
 
     .label {
-        font-size: 0.7em; /* Tamaño más pequeño para las etiquetas */
+        font-size: 0.7em; /* Tamaño más pequeño para etiquetas en móvil */
     }
 
-    .confirmation-button {
-        padding: 10px 20px; /* Ajuste en el padding para pantallas pequeñas */
-        font-size: 1em; /* Tamaño más pequeño del texto */
+    .audio-button {
+        padding: 8px 15px; /* Ajustar tamaño del botón en móvil */
     }
 }

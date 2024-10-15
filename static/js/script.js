@@ -24,9 +24,9 @@ const countdownFunction = setInterval(() => {
     }
 }, 1000);
 
-// Reproductor de música
+// Control del audio
 const audio = document.getElementById('audio');
-const playPauseButton = document.getElementById('play-pause-button');
+const playPauseButton = document.getElementById('playPauseButton');
 const playIcon = document.querySelector('.play-icon');
 const audioStatus = document.querySelector('.audio-status');
 
@@ -35,9 +35,11 @@ playPauseButton.addEventListener('click', () => {
         audio.play();
         playIcon.textContent = "⏸️"; // Cambia el icono a pausa
         audioStatus.textContent = "Pausar Música";
+        playPauseButton.classList.add('audio-playing'); // Agregar clase para efectos
     } else {
         audio.pause();
         playIcon.textContent = "▶️"; // Cambia el icono a play
         audioStatus.textContent = "Reproducir Música";
+        playPauseButton.classList.remove('audio-playing'); // Remover clase para efectos
     }
 });
