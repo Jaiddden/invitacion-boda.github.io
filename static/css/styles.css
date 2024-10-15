@@ -1,24 +1,15 @@
-/* Separadores personalizados */
-.custom-separator {
-    border: none;
-    border-top: 2px solid #c2a386; /* Color suave */
-    margin: 50px 0; /* Aumentar el margen superior e inferior */
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Otros estilos */
+/* Estilos generales */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
+    margin: 0; /* Eliminar márgenes del body */
 }
 
 .invitation-container {
     background-color: #ffffff;
     border: 5px solid #f1c40f;
     border-radius: 15px;
-    padding: 30px;
+    padding: 20px; /* Ajusta el padding */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     margin: auto;
@@ -44,39 +35,75 @@ body {
     margin-bottom: 20px;
 }
 
+.audio-container {
+    position: relative;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.audio-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #25D366;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.audio-button:hover {
+    background-color: #128C7E;
+}
+
+/* Icono de reproducción */
+.play-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+/* Estado de audio */
+.audio-status {
+    font-size: 1em;
+}
+
+/* Contador de cuenta regresiva */
 .countdown {
-    font-size: 1em; /* Tamaño más pequeño para los números */
+    font-size: 1em;
     margin: 20px 0;
 }
 
 .countdown-title {
-    font-size: 1.2em; /* Tamaño del título "Faltan" */
+    font-size: 1.2em;
 }
 
 .countdown-time {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinea las etiquetas con los números */
+    align-items: flex-end;
 }
 
 .time-block {
-    margin: 0 5px; /* Espaciado entre los bloques de tiempo */
-    text-align: center; /* Centra el texto */
+    margin: 0 5px;
+    text-align: center;
 }
 
 .countdown-time span {
-    font-size: 1.5em; /* Tamaño de los números */
+    font-size: 1.5em;
 }
 
 .separator {
-    font-size: 1.5em; /* Tamaño de los dos puntos */
-    margin: 0 10px; /* Espacio a los lados de los dos puntos */
+    font-size: 1.5em;
+    margin: 0 10px;
 }
 
 .label {
-    font-size: 0.8em; /* Tamaño más pequeño para las etiquetas */
-    display: block; /* Muestra las etiquetas en línea vertical */
-    margin-top: 5px; /* Espacio encima de las etiquetas */
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
 }
 
 .invitation-details {
@@ -97,103 +124,56 @@ body {
 }
 
 .confirmation-button:hover {
-    background-color: #f1c40f; /* Cambia de color al pasar el mouse */
+    background-color: #f1c40f;
 }
 
-/* Estilos para el contenedor del audio */
-.audio-container {
-    position: relative;
-    text-align: center;
-    margin: 20px 0; /* Espacio alrededor del reproductor */
-}
-
-/* Estilos para el botón de audio */
-.audio-button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    background-color: #25D366; /* Color verde WhatsApp */
+/* Separador personalizado */
+.custom-separator {
     border: none;
-    border-radius: 20px; /* Bordes redondeados */
-    color: white;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    position: relative; /* Para las ondas sonoras */
-    overflow: hidden; /* Para ocultar partes externas */
+    border-top: 2px solid #c2a386;
+    margin: 50px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.audio-button:hover {
-    background-color: #128C7E; /* Color más oscuro al pasar el ratón */
-}
-
-/* Icono de reproducción */
-.play-icon {
-    font-size: 1.5em;
-    margin-right: 10px; /* Espacio entre el icono y el texto */
-}
-
-/* Estado de audio */
-.audio-status {
-    font-size: 1em; /* Tamaño del texto de estado */
-}
-
-/* Estilo de ondas sonoras */
-.audio-wave {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Para que no interfiera con el clic */
-    overflow: hidden; /* Oculta el desbordamiento */
-}
-
-.wave {
-    position: absolute;
-    width: 5px; /* Ancho de las ondas */
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.6); /* Color blanco con opacidad */
-    bottom: 0;
-    animation: wave-animation 1.5s infinite ease-in-out; /* Animación de onda */
-}
-
-.wave:nth-child(1) {
-    left: 20%;
-    animation-delay: 0s; /* Diferente retraso para cada onda */
-}
-
-.wave:nth-child(2) {
-    left: 50%;
-    animation-delay: 0.3s; /* Diferente retraso para cada onda */
-}
-
-.wave:nth-child(3) {
-    left: 80%;
-    animation-delay: 0.6s; /* Diferente retraso para cada onda */
-}
-
-/* Animación de las ondas sonoras */
-@keyframes wave-animation {
-    0% {
-        height: 30%;
-    }
-    50% {
-        height: 100%;
-    }
-    100% {
-        height: 30%;
-    }
-}
-
-/* Medidas responsivas */
+/* Estilos responsivos */
 @media (max-width: 768px) {
     .invitation-container {
-        padding: 20px;
+        padding: 15px; /* Menos padding en pantallas pequeñas */
+    }
+
+    .invitation-header h1 {
+        font-size: 2em; /* Tamaño más pequeño del título */
+    }
+
+    .invitation-header h2 {
+        font-size: 1.2em; /* Tamaño más pequeño del subtítulo */
     }
 
     .audio-button {
-        padding: 10px; /* Ajuste en el padding para pantallas pequeñas */
+        padding: 8px; /* Ajuste en el padding para pantallas pequeñas */
+        font-size: 0.9em; /* Tamaño de fuente más pequeño */
+    }
+
+    .play-icon {
+        font-size: 1.2em; /* Tamaño más pequeño del icono */
+    }
+
+    .countdown-time span {
+        font-size: 1.2em; /* Tamaño más pequeño para los números */
+    }
+
+    .separator {
+        font-size: 1.2em; /* Tamaño de los dos puntos */
+    }
+
+    .label {
+        font-size: 0.7em; /* Tamaño más pequeño para las etiquetas */
+    }
+
+    .confirmation-button {
+        padding: 10px 20px; /* Ajuste en el padding para pantallas pequeñas */
+        font-size: 1em; /* Tamaño más pequeño del texto */
     }
 }
