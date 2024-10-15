@@ -11,32 +11,50 @@ const countdownFunction = setInterval(() => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Mostrar resultados en los elementos
-    document.getElementById("days").innerText = days < 10 ? '0' + days : days;
-    document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
-    document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
-    document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+    // Actualizar el contenido del temporizador
+    document.getElementById("countdown").innerHTML = `
+        <div class="tiempo"><span>${days}</span><span class="label">Días</span></div>
+        <div class="colon">:</div>
+        <div class="tiempo"><span>${hours.toString().padStart(2, '0')}</span><span class="label">Horas</span></div>
+        <div class="colon">:</div>
+        <div class="tiempo"><span>${minutes.toString().padStart(2, '0')}</span><span class="label">Minutos</span></div>
+        <div class="colon">:</div>
+        <div class="tiempo"><span>${seconds.toString().padStart(2, '0')}</span><span class="label">Segundos</span></div>
+    `;
 
     // Si la cuenta regresiva ha terminado
     if (distance < 0) {
         clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "¡La boda ha llegado!";
+        document.getElementById("countdown").innerHTML = "¡La boda ha comenzado!";
     }
 }, 1000);
 
-// Reproductor de música
-const audio = document.getElementById("audio");
-const audioButton = document.getElementById("audio-button");
-const audioStatus = document.querySelector(".audio-status");
+// Variables para el audio, el botón, la frase y la animación
+const music = document.getElementById('music');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const playPauseIcon = playPauseBtn.querySelector('i');
+const songLabel = document.getElementById('songLabel');
+const waveAnimation = document.getElementById('waveAnimation');
 
-audioButton.addEventListener("click", () => {
-    if (audio.paused) {
-        audio.play();
-        audioStatus.innerText = "Pausar Música";
-        audioButton.classList.add("playing");
+// Función para reproducir o pausar la música
+playPauseBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        playPauseIcon.classList.remove('fa-play');
+        playPauseIcon.classList.add('fa-pause');
+        songLabel.style.color = "#2ecc71"; // Cambia el color de la frase cuando está en reproducción
+        waveAnimation.style.display = "block"; // Muestra la animación de ondas
     } else {
-        audio.pause();
-        audioStatus.innerText = "Reproducir Música";
-        audioButton.classList.remove("playing");
+        music.pause();
+        playPauseIcon.classList.remove('fa-pause');
+        playPauseIcon.classList.add('fa-play');
+        songLabel.style.color = "#555"; // Vuelve al color original cuando se pausa
+        waveAnimation.style.display = "none"; // Oculta la animación de ondas
     }
+});
+
+// Ajuste para prevenir autoplay en móviles
+document.addEventListener('DOMContentLoaded', function() {
+    music.pause();
+    playPauseIcon.classList.add('fa-play');
 });

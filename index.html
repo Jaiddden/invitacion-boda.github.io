@@ -3,61 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles/styles.css">
-    <script src="static/js/script.js" defer></script>
-    <title>Invitación de Boda</title>
+    <title>Nuestra Boda</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script defer src="static/js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="invitation-container">
-        <div class="invitation-header">
-            <h1>Camila & Jaidden</h1>
-            <h2>¡Te invitamos a nuestra boda!</h2>
-        </div>
-        
-        <div class="audio-container">
-            <div class="audio-button" id="audio-button">
-                <div class="audio-waveform">
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-                </div>
-                <i class="play-icon">▶️</i>
-                <span class="audio-status">Reproducir Música</span>
-            </div>
-            <audio id="audio" src="static/Music/Music.m4a"></audio>
+    <div class="container">
+        <!-- Imagen -->
+        <div class="image-container">
+            <img src="static/images/pareja.jpg" alt="Imagen de la pareja" class="imagen-pareja">
         </div>
 
-        <img src="static/images/pareja.jpg" alt="Pareja" class="couple-image">
-        
-        <div id="countdown" class="countdown">
-            <div class="countdown-title">Faltan</div>
-            <div class="countdown-time">
-                <div class="time-block">
-                    <span id="days">00</span>
-                    <span class="label">Días</span>
-                </div>
-                <div class="separator">:</div>
-                <div class="time-block">
-                    <span id="hours">00</span>
-                    <span class="label">Horas</span>
-                </div>
-                <div class="separator">:</div>
-                <div class="time-block">
-                    <span id="minutes">00</span>
-                    <span class="label">Minutos</span>
-                </div>
-                <div class="separator">:</div>
-                <div class="time-block">
-                    <span id="seconds">00</span>
-                    <span class="label">Segundos</span>
-                </div>
+                <!-- Reproductor de Música -->
+        <div class="music-container">
+            <audio id="music" src="static/music/Music.m4a" preload="auto"></audio>
+            <div id="music-btn-container">
+                <button id="playPauseBtn" class="play-pause-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <span id="songLabel">Nuestra canción</span>
+                <div id="waveAnimation" class="wave"></div>
             </div>
         </div>
-        
-        <div class="invitation-details">
-            <p>Fecha: 25 de Octubre de 2025</p>
-            <p>Ubicación: <a href="https://www.google.com/maps/place/Parroquia+San+F%C3%A9lix/@6.3390971,-75.6102896,1137m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8e442e64c2fce76d:0xf6b9168f693b26d!8m2!3d6.3390918!4d-75.6077147!16s%2Fg%2F1tf2t86s?entry=ttu" target="_blank">Ver en Google Maps</a></p>
+
+        <!-- Texto Principal -->
+        <h1>Nuestra boda</h1>
+
+        <!-- Fecha y Cuenta Regresiva -->
+        <div class="fecha-container">
+            <div class="fecha-linea">
+                <span class="linea"></span>
+                <h2>Octubre <span id="fecha">25</span> 2025</h2>
+                <span class="linea"></span>
+            </div>
+            <p>Faltan...</p>
+            <div id="countdown" class="countdown">
+                <div class="tiempo"><span id="days"></span> Días</div>
+                <div class="colon">:</div>
+                <div class="tiempo"><span id="hours"></span> Horas</div>
+                <div class="colon">:</div>
+                <div class="tiempo"><span id="minutes"></span> Minutos</div>
+                <div class="colon">:</div>
+                <div class="tiempo"><span id="seconds"></span> Segundos</div>
+            </div>
         </div>
+
+        <!-- Botón para Agendar Fecha -->
+        <div class="boton-agendar-container">
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Nuestra%20Boda&dates=20251025T150000Z/20251025T180000Z" target="_blank" class="agendar-btn">
+                <i class="fas fa-calendar-alt"></i> Agendar fecha
+            </a>
+        </div>
+
+        <!-- Ubicación -->
+        <div class="ubicacion-container">
+            <h3><i class="fas fa-church"></i> Ceremonia Católica</h3>
+            <p>Hora: 3:00 pm</p>
+            <p>Capilla La China - San Félix</p>
+            <a href="https://www.google.com/maps/place/Parroquia+San+Félix/@6.3390971,-75.6102896,1137m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8e442e64c2fce76d:0xf6b9168f693b26d!8m2!3d6.3390918!4d-75.6077147!16s%2Fg%2F1tf2t86s?entry=ttu&g_ep=EgoyMDI0MTAwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="ubicacion-btn">
+                <i class="fas fa-map-marker-alt"></i> Ver ubicación
+            </a>
+</div>
+
     </div>
 </body>
 </html>

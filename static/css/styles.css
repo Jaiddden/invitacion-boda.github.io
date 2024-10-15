@@ -1,166 +1,246 @@
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f0f0f0;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.invitation-container {
-    background-color: #ffffff;
-    border: none; /* Sin borde */
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: auto;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Permitir que los elementos puedan extenderse verticalmente */
+    min-height: 120vh; /* Hacer la página más larga */
+}
+
+.container {
     text-align: center;
-}
-
-.invitation-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    margin-bottom: 0.5em;
-}
-
-.invitation-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-.couple-image {
+    max-width: 600px;
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin: 20px 0; /* Espaciado alrededor de la imagen */
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    margin: 40px 0; /* Aumentar el margen superior e inferior */
 }
 
-.countdown {
-    font-size: 1em; /* Tamaño más pequeño para los números */
+.image-container img {
+    width: 90%; /* Reducir un poco el ancho de la imagen para dejar más espacio */
+    border-radius: 15px;
+    margin-bottom: 40px; /* Aumentar la separación con el contenido inferior */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Añadir sombra para mejorar la estética */
+}
+
+.music-container {
     margin: 20px 0;
 }
 
-.countdown-title {
-    font-size: 1.2em; /* Tamaño del título "Faltan" */
-}
-
-.countdown-time {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Alinea las etiquetas con los números */
-}
-
-.time-block {
-    margin: 0 5px; /* Espaciado entre los bloques de tiempo */
-    text-align: center; /* Centra el texto */
-}
-
-.countdown-time span {
-    font-size: 1.5em; /* Tamaño de los números */
-}
-
-.separator {
-    font-size: 1.5em; /* Tamaño de los dos puntos */
-    margin: 0 10px; /* Espacio a los lados de los dos puntos */
-}
-
-.label {
-    font-size: 0.8em; /* Tamaño más pequeño para las etiquetas */
-    display: block; /* Muestra las etiquetas en línea vertical */
-    margin-top: 5px; /* Espacio encima de las etiquetas */
-}
-
-.invitation-details {
-    margin-top: 20px;
-    font-family: 'Lora', serif;
-}
-
-.audio-container {
-    text-align: center;
-    margin-bottom: 20px; /* Espacio debajo del reproductor */
-}
-
-.audio-button {
+.play-pause-btn {
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    color: white;
     cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* Transición suave al hacer clic */
+}
+
+.play-pause-btn:hover {
+    background-color: #27ae60;
+    transform: scale(1.1); /* Ampliar ligeramente el botón al pasar el ratón */
+}
+
+h1 {
+    font-size: 3em; /* Aumentar ligeramente el tamaño del título */
+    color: #333;
+    margin-bottom: 20px; /* Espacio más grande debajo del título */
+}
+
+.fecha-container {
+    margin: 40px 0; /* Aumentar el espacio entre secciones */
+}
+
+.fecha-container h2 {
+    font-size: 2.5em;
+    color: #27ae60;
+    margin-bottom: 20px; /* Aumentar el espacio debajo del título de la fecha */
+}
+
+.fecha-linea {
     display: flex;
-    align-items: center;
     justify-content: center;
-    margin: 20px auto;
-    padding: 10px;
-    border: 2px solid #4caf50; /* Borde verde esmeralda */
+    align-items: center;
+    gap: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 2em;
+    color: #b58900;
+}
+
+.linea {
+    width: 50px;
+    height: 2px;
+    background-color: #4169E1;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.8em;
+    font-family: 'Arial', sans-serif;
+    margin-top: 20px;
+    color: #333;
+}
+
+.countdown .tiempo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.countdown .tiempo span {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.countdown .tiempo .label {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+}
+
+.colon {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.boton-agendar-container {
+    margin: 30px 0; /* Aumentar espacio superior e inferior */
+}
+
+.agendar-btn {
+    padding: 10px 25px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
     border-radius: 5px;
-    background-color: white;
-    transition: background-color 0.3s ease;
+    text-decoration: none;
+    font-size: 1.2em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.audio-button:hover {
-    background-color: #f1c40f; /* Color de fondo al pasar el ratón */
+.agendar-btn:hover {
+    background-color: #27ae60;
 }
 
-.audio-waveform {
+.agendar-btn i {
+    margin-right: 8px; /* Añade un pequeño espacio entre el ícono y el texto */
+}
+
+.ubicacion-container {
+    margin-top: 40px; /* Aumentar espacio superior */
+}
+
+.ubicacion-container h3 i {
+    margin-right: 8px; /* Espacio entre el ícono de iglesia y el texto */
+}
+
+.ubicacion-btn i {
+    margin-right: 8px; /* Espacio entre el ícono de ubicación y el texto */
+}
+
+.ubicacion-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ubicacion-btn:hover {
+    background-color: #2980b9;
+}
+
+.ubicacion-btn i {
+    margin-right: 8px; /* Añade un pequeño espacio entre el ícono y el texto */
+}
+
+.music-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+#music-btn-container {
     display: flex;
     align-items: center;
-    margin-right: 10px; /* Espacio entre la barra y el texto */
+    gap: 10px; /* Espacio entre el botón y la frase */
+}
+
+.play-pause-btn {
+    background-color: #2ecc71;
+    border: none;
+    border-radius: 50%;
+    padding: 15px;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.play-pause-btn:hover {
+    background-color: #27ae60;
+}
+
+#songLabel {
+    font-size: 1.2em;
+    color: #555;
+    margin-left: 10px;
 }
 
 .wave {
-    width: 4px;
+    display: none; /* Por defecto oculto, se mostrará al reproducir */
+    width: 20px;
     height: 20px;
-    background-color: #4caf50; /* Color de la barra de audio */
-    margin: 0 2px;
+    position: relative;
+}
+
+.wave::before,
+.wave::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: 2px solid #2ecc71;
+    border-radius: 50%;
     animation: wave-animation 1s infinite;
 }
 
+.wave::after {
+    animation-delay: 0.5s;
+}
+
 @keyframes wave-animation {
-    0%, 100% {
-        height: 20px;
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
     }
-    50% {
-        height: 30px; /* Cambio en la altura de la barra */
-    }
-}
-
-.play-icon {
-    font-size: 1.5em; /* Tamaño del icono de reproducción */
-}
-
-.audio-status {
-    font-size: 1em; /* Tamaño del texto de estado */
-    margin-left: 10px; /* Espacio entre el icono y el texto */
-}
-
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .invitation-container {
-        padding: 20px;
-    }
-
-    .audio-button {
-        flex-direction: row;
-        padding: 5px;
-    }
-
-    .play-icon {
-        font-size: 1.2em;
-    }
-
-    .audio-status {
-        font-size: 0.9em;
-    }
-
-    .countdown {
-        font-size: 0.8em; /* Tamaño más pequeño para móviles */
-    }
-
-    .countdown-time span {
-        font-size: 1.2em; /* Tamaño de los números en móviles */
-    }
-
-    .separator {
-        font-size: 1.2em; /* Tamaño de los dos puntos en móviles */
-    }
-
-    .label {
-        font-size: 0.7em; /* Tamaño más pequeño para las etiquetas en móviles */
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
     }
 }
