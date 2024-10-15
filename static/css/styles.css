@@ -1,19 +1,12 @@
-/* Separadores personalizados */
-.custom-separator {
-    border: none;
-    border-top: 2px solid #c2a386; /* Color suave */
-    margin: 50px 0; /* Aumentar el margen superior e inferior */
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Otros estilos */
+/* Estilos globales */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
+/* Contenedor principal de la invitación */
 .invitation-container {
     background-color: #ffffff;
     border: 5px solid #f1c40f;
@@ -21,10 +14,11 @@ body {
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: auto;
+    margin: 20px auto;
     text-align: center;
 }
 
+/* Estilos del encabezado */
 .invitation-header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
@@ -37,6 +31,7 @@ body {
     margin-bottom: 20px;
 }
 
+/* Imagen de la pareja */
 .couple-image {
     width: 100%;
     height: auto;
@@ -44,46 +39,49 @@ body {
     margin-bottom: 20px;
 }
 
+/* Temporizador de cuenta regresiva */
 .countdown {
-    font-size: 1em; /* Tamaño más pequeño para los números */
+    font-size: 1em;
     margin: 20px 0;
 }
 
 .countdown-title {
-    font-size: 1.2em; /* Tamaño del título "Faltan" */
+    font-size: 1.2em;
 }
 
 .countdown-time {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Alinea las etiquetas con los números */
+    align-items: flex-end;
 }
 
 .time-block {
-    margin: 0 5px; /* Espaciado entre los bloques de tiempo */
-    text-align: center; /* Centra el texto */
+    margin: 0 5px;
+    text-align: center;
 }
 
 .countdown-time span {
-    font-size: 1.5em; /* Tamaño de los números */
+    font-size: 1.5em;
 }
 
 .separator {
-    font-size: 1.5em; /* Tamaño de los dos puntos */
-    margin: 0 10px; /* Espacio a los lados de los dos puntos */
+    font-size: 1.5em;
+    margin: 0 10px;
 }
 
 .label {
-    font-size: 0.8em; /* Tamaño más pequeño para las etiquetas */
-    display: block; /* Muestra las etiquetas en línea vertical */
-    margin-top: 5px; /* Espacio encima de las etiquetas */
+    font-size: 0.8em;
+    display: block;
+    margin-top: 5px;
 }
 
+/* Detalles de la invitación */
 .invitation-details {
     margin-top: 20px;
     font-family: 'Lora', serif;
 }
 
+/* Botón de confirmación */
 .confirmation-button {
     display: inline-block;
     padding: 15px 30px;
@@ -97,7 +95,17 @@ body {
 }
 
 .confirmation-button:hover {
-    background-color: #f1c40f; /* Cambia de color al pasar el mouse */
+    background-color: #f1c40f;
+}
+
+/* Separadores personalizados */
+.custom-separator {
+    border: none;
+    border-top: 2px solid #c2a386;
+    margin: 50px 0;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Estilos para el botón de audio */
@@ -112,25 +120,25 @@ body {
     justify-content: center;
     margin: 20px auto;
     padding: 10px;
-    border: 2px solid #c2a386; /* Borde alrededor del botón de audio */
+    border: 2px solid #c2a386;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .audio-button:hover {
-    background-color: #f1c40f; /* Color de fondo al pasar el ratón */
+    background-color: #f1c40f;
 }
 
 .audio-waveform {
     display: flex;
     align-items: center;
-    margin-right: 10px; /* Espacio entre la barra y el texto */
+    margin-right: 10px;
 }
 
 .wave {
     width: 4px;
     height: 20px;
-    background-color: #c2a386; /* Color de la barra de audio */
+    background-color: #c2a386;
     margin: 0 2px;
     animation: wave-animation 1s infinite;
 }
@@ -140,32 +148,41 @@ body {
         height: 20px;
     }
     50% {
-        height: 30px; /* Cambio en la altura de la barra */
+        height: 30px;
     }
 }
 
 .play-icon {
-    font-size: 1.5em; /* Tamaño del icono de reproducción */
+    font-size: 1.5em;
 }
 
 .audio-status {
-    font-size: 1em; /* Tamaño del texto de estado */
-    margin-left: 10px; /* Espacio entre el icono y el texto */
+    font-size: 1em;
+    margin-left: 10px;
 }
 
-/* Ajustes para pantallas pequeñas */
+/* Ajustes para pantallas pequeñas (móviles) */
 @media (max-width: 768px) {
     .invitation-container {
         padding: 20px;
+        border: 3px solid #f1c40f;
+    }
+
+    .invitation-header h1 {
+        font-size: 2em;
+    }
+
+    .invitation-header h2 {
+        font-size: 1.2em;
     }
 
     .audio-button {
-        flex-direction: row;
         padding: 5px;
+        flex-direction: row;
     }
 
     .audio-waveform {
-        display: none; /* Oculta las barras en pantallas pequeñas para más simplicidad */
+        display: none; /* Oculta las barras en pantallas pequeñas */
     }
 
     .play-icon {
@@ -174,5 +191,46 @@ body {
 
     .audio-status {
         font-size: 0.9em;
+    }
+
+    .countdown-time span {
+        font-size: 1.2em;
+    }
+
+    .separator {
+        font-size: 1.2em;
+    }
+
+    .confirmation-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* Ajustes para pantallas más grandes (computadoras de escritorio) */
+@media (min-width: 769px) {
+    .invitation-container {
+        max-width: 800px;
+    }
+
+    .invitation-header h1 {
+        font-size: 3em;
+    }
+
+    .invitation-header h2 {
+        font-size: 2em;
+    }
+
+    .countdown-time span {
+        font-size: 2em;
+    }
+
+    .separator {
+        font-size: 2em;
+    }
+
+    .confirmation-button {
+        padding: 20px 40px;
+        font-size: 1.5em;
     }
 }
