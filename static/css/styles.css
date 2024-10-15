@@ -12,6 +12,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
 .invitation-container {
@@ -101,62 +103,56 @@ body {
 
 /* Estilos para el botón de audio */
 .audio-container {
-    position: relative;
     text-align: center;
-    margin: 20px 0;
 }
 
 .audio-button {
-    position: relative;
     cursor: pointer;
-    padding: 10px 20px;
-    background-color: #25D366;
-    border: none;
-    border-radius: 25px; /* Bordes redondeados */
-    color: white;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones suaves */
-    overflow: hidden; /* Oculta el contenido que se sale del borde */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    background-color: #f9f9f9;
+    border: 2px solid #c2a386; /* Borde alrededor del botón de audio */
 }
 
 .audio-button:hover {
-    background-color: #128C7E;
-    transform: scale(1.05); /* Agranda el botón al pasar el mouse */
+    background-color: #f1c40f; /* Color de fondo al pasar el ratón */
 }
 
-.audio-button:active {
-    transform: scale(0.95); /* Efecto de presión */
+.audio-waveform {
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Espacio entre la barra y el texto */
+}
+
+.wave {
+    width: 4px;
+    height: 20px;
+    background-color: #c2a386; /* Color de la barra de audio */
+    margin: 0 2px;
+    animation: wave-animation 1s infinite;
+}
+
+@keyframes wave-animation {
+    0%, 100% {
+        height: 20px;
+    }
+    50% {
+        height: 30px; /* Cambio en la altura de la barra */
+    }
 }
 
 .play-icon {
-    font-size: 1.5em; /* Tamaño del icono */
-    margin-right: 10px;
-    transition: transform 0.3s ease; /* Transición suave */
-}
-
-/* Efecto de onda sonora */
-@keyframes wave {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
+    font-size: 1.5em; /* Tamaño del icono de reproducción */
 }
 
 .audio-status {
-    font-size: 1em;
-    transition: color 0.3s ease; /* Transición suave para el texto */
-}
-
-/* Cuando la música está reproduciéndose */
-.audio-playing .play-icon {
-    animation: wave 1s infinite; /* Animación de onda */
-    color: #f1c40f; /* Cambia el color del icono cuando se está reproduciendo */
-}
-
-.audio-playing .audio-status {
-    color: #f1c40f; /* Cambia el color del texto cuando se está reproduciendo */
+    font-size: 1em; /* Tamaño del texto de estado */
+    margin-left: 10px; /* Espacio entre el icono y el texto */
 }
 
 /* Ajustes para pantallas pequeñas */
@@ -165,15 +161,24 @@ body {
         padding: 20px;
     }
 
-    .countdown-time span {
-        font-size: 1.2em; /* Tamaño más pequeño en móvil */
-    }
-
-    .label {
-        font-size: 0.7em; /* Tamaño más pequeño para etiquetas en móvil */
-    }
-
     .audio-button {
-        padding: 8px 15px; /* Ajustar tamaño del botón en móvil */
+        flex-direction: row;
+        padding: 5px;
+    }
+
+    .audio-waveform {
+        display: none; /* Oculta las barras en pantallas pequeñas para más simplicidad */
+    }
+
+    .play-icon {
+        font-size: 1.2em;
+    }
+
+    .audio-status {
+        font-size: 0.9em;
+    }
+
+    .countdown-time span {
+        font-size: 1.2em; /* Tamaño de los números en móviles */
     }
 }

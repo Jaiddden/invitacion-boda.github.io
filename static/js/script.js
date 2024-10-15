@@ -32,14 +32,20 @@ const audioStatus = document.querySelector('.audio-status');
 
 playPauseButton.addEventListener('click', () => {
     if (audio.paused) {
-        audio.play();
-        playIcon.textContent = "⏸️"; // Cambia el icono a pausa
-        audioStatus.textContent = "Pausar Música";
-        playPauseButton.classList.add('audio-playing'); // Agregar clase para efectos
+        audio.play()
+            .then(() => {
+                playIcon.textContent = "⏸️"; // Cambia el icono a pausa
+                audioStatus.textContent = "Pausar Música";
+                playPauseButton.classList.add('audio-playing');
+            })
+            .catch(error => {
+                console.error("Error al intentar reproducir:", error);
+                alert("Por favor, permite la reproducción de audio en tu dispositivo.");
+            });
     } else {
         audio.pause();
         playIcon.textContent = "▶️"; // Cambia el icono a play
         audioStatus.textContent = "Reproducir Música";
-        playPauseButton.classList.remove('audio-playing'); // Remover clase para efectos
+        playPauseButton.classList.remove('audio-playing');
     }
 });

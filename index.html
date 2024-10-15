@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda</title>
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <script src="static/js/script.js" defer></script>
 </head>
 <body>
     <div class="invitation-container">
         <div class="invitation-header">
-            <h1>Camila & Jaidden</h1>
-            <h2>¡Te invitamos a nuestra boda!</h2>
+            <h1>¡Te invitamos a nuestra boda!</h1>
+            <h2>Camila y Jaidden</h2>
         </div>
-        
-        <img src="static/images/pareja.jpg" alt="Pareja" class="couple-image">
+        <img class="couple-image" src="static/pareja.jpg" alt="Camila y Jaidden">
         
         <div class="audio-container">
-            <button class="audio-button" id="playPauseButton">
+            <div class="audio-button" id="playPauseButton">
+                <div class="audio-waveform">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
                 <span class="play-icon">▶️</span>
                 <span class="audio-status">Reproducir Música</span>
-            </button>
-            <audio id="audio" src="static/Music/Music.m4a"></audio>
+            </div>
+            <audio id="audio" src="static/Music/Music.m4a" preload="auto"></audio>
         </div>
-        
+
         <div class="countdown">
             <div class="countdown-title">Faltan:</div>
-            <div class="countdown-time" id="countdown">
+            <div class="countdown-time">
                 <div class="time-block">
                     <span id="days">0</span>
                     <span class="label">Días</span>
@@ -47,16 +53,13 @@
                 </div>
             </div>
         </div>
-        
+
+        <hr class="custom-separator">
+
         <div class="invitation-details">
-            <p>Fecha: 25 de octubre de 2025</p>
-            <p>Hora: 5:00 PM</p>
-            <p>Lugar: [Lugar de la boda]</p>
+            <p>Te esperamos el 25 de octubre de 2025.</p>
+            <a href="confirmation.html" class="confirmation-button">Confirmar Asistencia</a>
         </div>
-        
-        <button class="confirmation-button" onclick="location.href='confirmation.html'">Confirmar Asistencia</button>
     </div>
-    
-    <script src="static/js/script.js"></script>
 </body>
 </html>
