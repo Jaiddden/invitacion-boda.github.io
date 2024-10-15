@@ -16,8 +16,15 @@
         </div>
 
                 <!-- Reproductor de Música -->
+                <audio controls>
+                    <source src="static/music/Music.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+
+                <audio id="music" src="static/music/Music.mp3" preload="none"></audio>
+
         <div class="music-container">
-            <audio id="music" src="static/music/Music.m4a" preload="auto"></audio>
+            <audio id="music" src="static/music/Music.mp3" preload="auto"></audio>
             <div id="music-btn-container">
                 <button id="playPauseBtn" class="play-pause-btn">
                     <i class="fas fa-play"></i>
