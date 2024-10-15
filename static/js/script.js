@@ -11,35 +11,34 @@ const countdownFunction = setInterval(() => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Actualizar el contenido del temporizador
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    // Actualiza los elementos de la cuenta regresiva
+    document.getElementById("days").innerText = String(days).padStart(2, '0');
+    document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
 
     // Si la cuenta regresiva ha terminado
     if (distance < 0) {
         clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "¡La boda ha comenzado!";
+        document.querySelector(".countdown").innerHTML = "¡Es el gran día!";
     }
 }, 1000);
 
+// Función para reproducir o pausar el audio
 function toggleAudio() {
     const audio = document.getElementById("audio");
     const playIcon = document.querySelector(".play-icon");
     const audioStatus = document.querySelector(".audio-status");
 
     if (audio.paused) {
-        audio.play().catch(error => {
-            console.error("Error al reproducir el audio:", error);
-        });
+        audio.play();
         playIcon.classList.remove("fa-play");
         playIcon.classList.add("fa-pause");
-        audioStatus.textContent = "Pausar Música";
+        audioStatus.innerText = "Pausar Música";
     } else {
         audio.pause();
         playIcon.classList.remove("fa-pause");
         playIcon.classList.add("fa-play");
-        audioStatus.textContent = "Reproducir Música";
+        audioStatus.innerText = "Reproducir Música";
     }
 }
