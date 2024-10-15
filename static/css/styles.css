@@ -7,7 +7,7 @@ body {
 
 .invitation-container {
     background-color: #ffffff;
-    border: 5px solid #f1c40f;
+    /* border: 5px solid #f1c40f; /* Comentar o eliminar esta línea para quitar el borde */
     border-radius: 15px;
     padding: 20px; /* Ajusta el padding */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -72,7 +72,7 @@ body {
 
 /* Contador de cuenta regresiva */
 .countdown {
-    font-size: 1em;
+    font-size: 0.8em; /* Tamaño más pequeño para el temporizador */
     margin: 20px 0;
 }
 
@@ -92,7 +92,7 @@ body {
 }
 
 .countdown-time span {
-    font-size: 1.5em;
+    font-size: 1.2em; /* Tamaño más pequeño para los números */
 }
 
 .separator {

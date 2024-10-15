@@ -11,34 +11,33 @@ const countdownFunction = setInterval(() => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Actualiza los elementos de la cuenta regresiva
-    document.getElementById("days").innerText = String(days).padStart(2, '0');
-    document.getElementById("hours").innerText = String(hours).padStart(2, '0');
-    document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
-    document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+    // Actualizar el contenido del temporizador
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
 
     // Si la cuenta regresiva ha terminado
     if (distance < 0) {
         clearInterval(countdownFunction);
-        document.querySelector(".countdown").innerHTML = "¡Es el gran día!";
+        document.getElementById("countdown").innerHTML = "¡La boda ha comenzado!";
     }
 }, 1000);
 
-// Función para reproducir o pausar el audio
-function toggleAudio() {
-    const audio = document.getElementById("audio");
-    const playIcon = document.querySelector(".play-icon");
-    const audioStatus = document.querySelector(".audio-status");
+// Reproductor de música
+const audio = document.getElementById('audio');
+const playPauseButton = document.getElementById('play-pause-button');
+const playIcon = document.querySelector('.play-icon');
+const audioStatus = document.querySelector('.audio-status');
 
+playPauseButton.addEventListener('click', () => {
     if (audio.paused) {
         audio.play();
-        playIcon.classList.remove("fa-play");
-        playIcon.classList.add("fa-pause");
-        audioStatus.innerText = "Pausar Música";
+        playIcon.textContent = "⏸️"; // Cambia el icono a pausa
+        audioStatus.textContent = "Pausar Música";
     } else {
         audio.pause();
-        playIcon.classList.remove("fa-pause");
-        playIcon.classList.add("fa-play");
-        audioStatus.innerText = "Reproducir Música";
+        playIcon.textContent = "▶️"; // Cambia el icono a play
+        audioStatus.textContent = "Reproducir Música";
     }
-}
+});
