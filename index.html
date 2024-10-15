@@ -4,48 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <script src="static/js/script.js" defer></script>
 </head>
 <body>
     <div class="invitation-container">
         <div class="invitation-header">
             <h1>Camila y Jaidden</h1>
-            <h2>Te invitamos a nuestra boda</h2>
-            <img src="{{ url_for('static', filename='images/pareja.jpg') }}" alt="Pareja" class="couple-image">
-        </div>
-        
-        <hr class="custom-separator">
-        
-        <div id="countdown" class="countdown">
-            <div class="countdown-title">Faltan</div>
-            <div class="countdown-time">
-                <div class="time-block" id="days"><span>0</span></div>
-                <div class="separator">:</div>
-                <div class="time-block" id="hours"><span>0</span></div>
-                <div class="separator">:</div>
-                <div class="time-block" id="minutes"><span>0</span></div>
-                <div class="separator">:</div>
-                <div class="time-block" id="seconds"><span>0</span></div>
-            </div>
-        </div>
-        
-        <div class="invitation-details">
-            <p>Te esperamos el 25 de octubre de 2025.</p>
-            <a href="confirmacion.html" class="confirmation-button">Confirma tu asistencia</a>
+            <h2>Están felices de invitarte a su boda</h2>
         </div>
 
+        <!-- Reproductor de audio -->
         <div class="audio-container">
-            <div class="audio-button">
+            <div class="audio-button" id="audioButton">
                 <div class="audio-waveform">
                     <div class="wave"></div>
                     <div class="wave"></div>
                     <div class="wave"></div>
                 </div>
-                <i class="play-icon">▶️</i>
+                <span class="play-icon">▶️</span>
                 <span class="audio-status">Reproducir música</span>
             </div>
+            <audio id="audio" src="static/music/Music.m4a"></audio>
         </div>
+
+        <img src="static/images/pareja.jpg" alt="Camila y Jaidden" class="couple-image">
+        
+        <div class="countdown" id="countdown">
+            <div class="countdown-title">Faltan</div>
+            <div class="countdown-time">
+                <div class="time-block">
+                    <span id="days">00</span>
+                    <span class="label">Días</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-block">
+                    <span id="hours">00</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-block">
+                    <span id="minutes">00</span>
+                    <span class="label">Minutos</span>
+                </div>
+                <div class="separator">:</div>
+                <div class="time-block">
+                    <span id="seconds">00</span>
+                    <span class="label">Segundos</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="invitation-details">
+            <p>Te esperamos el 25 de octubre de 2025 a las 17:00 horas.</p>
+            <p>Lugar: Jardines de la Ciudad</p>
+        </div>
+        
+        <a href="#" class="confirmation-button">Confirmar asistencia</a>
     </div>
+    
+    <hr class="custom-separator">
 </body>
 </html>

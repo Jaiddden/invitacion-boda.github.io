@@ -1,12 +1,19 @@
-/* Estilos globales */
+/* Separadores personalizados */
+.custom-separator {
+    border: none;
+    border-top: 2px solid #c2a386; /* Color suave */
+    margin: 50px 0; /* Aumentar el margen superior e inferior */
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Otros estilos */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
 }
 
-/* Contenedor principal de la invitación */
 .invitation-container {
     background-color: #ffffff;
     border: 5px solid #f1c40f;
@@ -14,11 +21,10 @@ body {
     padding: 30px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 20px auto;
+    margin: auto;
     text-align: center;
 }
 
-/* Estilos del encabezado */
 .invitation-header h1 {
     font-family: 'Playfair Display', serif;
     font-size: 2.5em;
@@ -31,57 +37,55 @@ body {
     margin-bottom: 20px;
 }
 
-/* Imagen de la pareja */
 .couple-image {
     width: 100%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
+    position: relative; /* Para que el contenido superior se posicione correctamente */
+    z-index: 1; /* Asegura que la imagen esté debajo */
 }
 
-/* Temporizador de cuenta regresiva */
 .countdown {
-    font-size: 1em;
+    font-size: 1em; /* Tamaño más pequeño para los números */
     margin: 20px 0;
 }
 
 .countdown-title {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Tamaño del título "Faltan" */
 }
 
 .countdown-time {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-end; /* Alinea las etiquetas con los números */
 }
 
 .time-block {
-    margin: 0 5px;
-    text-align: center;
+    margin: 0 5px; /* Espaciado entre los bloques de tiempo */
+    text-align: center; /* Centra el texto */
 }
 
 .countdown-time span {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Tamaño de los números */
 }
 
 .separator {
-    font-size: 1.5em;
-    margin: 0 10px;
+    font-size: 1.5em; /* Tamaño de los dos puntos */
+    margin: 0 10px; /* Espacio a los lados de los dos puntos */
 }
 
 .label {
-    font-size: 0.8em;
-    display: block;
-    margin-top: 5px;
+    font-size: 0.8em; /* Tamaño más pequeño para las etiquetas */
+    display: block; /* Muestra las etiquetas en línea vertical */
+    margin-top: 5px; /* Espacio encima de las etiquetas */
 }
 
-/* Detalles de la invitación */
 .invitation-details {
     margin-top: 20px;
     font-family: 'Lora', serif;
 }
 
-/* Botón de confirmación */
 .confirmation-button {
     display: inline-block;
     padding: 15px 30px;
@@ -95,22 +99,15 @@ body {
 }
 
 .confirmation-button:hover {
-    background-color: #f1c40f;
-}
-
-/* Separadores personalizados */
-.custom-separator {
-    border: none;
-    border-top: 2px solid #c2a386;
-    margin: 50px 0;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: #f1c40f; /* Cambia de color al pasar el mouse */
 }
 
 /* Estilos para el botón de audio */
 .audio-container {
     text-align: center;
+    position: relative; /* Para permitir la superposición */
+    margin-bottom: -50px; /* Para que el reproductor se superponga a la imagen */
+    z-index: 10; /* Asegúrate de que esté por encima de la imagen */
 }
 
 .audio-button {
@@ -120,25 +117,25 @@ body {
     justify-content: center;
     margin: 20px auto;
     padding: 10px;
-    border: 2px solid #c2a386;
+    border: 2px solid #c2a386; /* Borde alrededor del botón de audio */
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 .audio-button:hover {
-    background-color: #f1c40f;
+    background-color: #f1c40f; /* Color de fondo al pasar el ratón */
 }
 
 .audio-waveform {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: 10px; /* Espacio entre la barra y el texto */
 }
 
 .wave {
     width: 4px;
     height: 20px;
-    background-color: #c2a386;
+    background-color: #c2a386; /* Color de la barra de audio */
     margin: 0 2px;
     animation: wave-animation 1s infinite;
 }
@@ -148,41 +145,32 @@ body {
         height: 20px;
     }
     50% {
-        height: 30px;
+        height: 30px; /* Cambio en la altura de la barra */
     }
 }
 
 .play-icon {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Tamaño del icono de reproducción */
 }
 
 .audio-status {
-    font-size: 1em;
-    margin-left: 10px;
+    font-size: 1em; /* Tamaño del texto de estado */
+    margin-left: 10px; /* Espacio entre el icono y el texto */
 }
 
-/* Ajustes para pantallas pequeñas (móviles) */
+/* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
     .invitation-container {
         padding: 20px;
-        border: 3px solid #f1c40f;
-    }
-
-    .invitation-header h1 {
-        font-size: 2em;
-    }
-
-    .invitation-header h2 {
-        font-size: 1.2em;
     }
 
     .audio-button {
-        padding: 5px;
         flex-direction: row;
+        padding: 5px;
     }
 
     .audio-waveform {
-        display: none; /* Oculta las barras en pantallas pequeñas */
+        display: none; /* Oculta las barras en pantallas pequeñas para más simplicidad */
     }
 
     .play-icon {
@@ -191,46 +179,5 @@ body {
 
     .audio-status {
         font-size: 0.9em;
-    }
-
-    .countdown-time span {
-        font-size: 1.2em;
-    }
-
-    .separator {
-        font-size: 1.2em;
-    }
-
-    .confirmation-button {
-        padding: 10px 20px;
-        font-size: 1em;
-    }
-}
-
-/* Ajustes para pantallas más grandes (computadoras de escritorio) */
-@media (min-width: 769px) {
-    .invitation-container {
-        max-width: 800px;
-    }
-
-    .invitation-header h1 {
-        font-size: 3em;
-    }
-
-    .invitation-header h2 {
-        font-size: 2em;
-    }
-
-    .countdown-time span {
-        font-size: 2em;
-    }
-
-    .separator {
-        font-size: 2em;
-    }
-
-    .confirmation-button {
-        padding: 20px 40px;
-        font-size: 1.5em;
     }
 }
