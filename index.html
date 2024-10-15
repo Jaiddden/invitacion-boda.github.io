@@ -3,148 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <title>Invitación de Boda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </head>
 <body>
-
     <div class="invitation-container">
-        <div class="invitation-header" data-aos="fade-up">
-            <h1>¡Te invitamos a nuestra boda!</h1>
-            <h2>Camila y Jaidden</h2>
+        <div class="invitation-header">
+            <h1>Camila y Jaidden</h1>
+            <h2>Te invitamos a nuestra boda</h2>
+            <img src="{{ url_for('static', filename='images/pareja.jpg') }}" alt="Pareja" class="couple-image">
+        </div>
+        
+        <hr class="custom-separator">
+        
+        <div id="countdown" class="countdown">
+            <div class="countdown-title">Faltan</div>
+            <div class="countdown-time">
+                <div class="time-block" id="days"><span>0</span></div>
+                <div class="separator">:</div>
+                <div class="time-block" id="hours"><span>0</span></div>
+                <div class="separator">:</div>
+                <div class="time-block" id="minutes"><span>0</span></div>
+                <div class="separator">:</div>
+                <div class="time-block" id="seconds"><span>0</span></div>
+            </div>
+        </div>
+        
+        <div class="invitation-details">
+            <p>Te esperamos el 25 de octubre de 2025.</p>
+            <a href="confirmacion.html" class="confirmation-button">Confirma tu asistencia</a>
         </div>
 
-        <!-- Botón de audio -->
-        <div class="audio-container" data-aos="fade-up">
-            <audio id="audio" src="{{ url_for('static', filename='Music/Music.m4a') }}" preload="auto"></audio>
-            <div class="audio-button" id="audio-button" onclick="toggleAudio()">
-                <span id="play-pause-icon" class="play-icon">▶</span>
-                <span id="audio-status" class="audio-status">Nuestra canción</span>
+        <div class="audio-container">
+            <div class="audio-button">
                 <div class="audio-waveform">
                     <div class="wave"></div>
                     <div class="wave"></div>
                     <div class="wave"></div>
-                    <div class="wave"></div>
-                    <div class="wave"></div>
                 </div>
+                <i class="play-icon">▶️</i>
+                <span class="audio-status">Reproducir música</span>
             </div>
         </div>
-
-        <!-- Imagen de la pareja -->
-        <div style="position: relative;">
-            <img src="{{ url_for('static', filename='images/pareja.jpg') }}" alt="Camila y Jaidden" class="couple-image" data-aos="fade-up">
-        </div>
-
-        <!-- Separador de color crema/café claro -->
-        <hr class="custom-separator" data-aos="fade-up">
-
-        <!-- Temporizador de cuenta regresiva -->
-        <div class="countdown" id="countdown" data-aos="fade-up">
-            <div class="countdown-title">Faltan</div>
-            <div class="countdown-time">
-                <div class="time-block">
-                    <span id="days"></span>
-                    <span class="label">días</span>
-                </div>
-                <span class="separator">:</span>
-                <div class="time-block">
-                    <span id="hours"></span>
-                    <span class="label">horas</span>
-                </div>
-                <span class="separator">:</span>
-                <div class="time-block">
-                    <span id="minutes"></span>
-                    <span class="label">minutos</span>
-                </div>
-                <span class="separator">:</span>
-                <div class="time-block">
-                    <span id="seconds"></span>
-                    <span class="label">segundos</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Segundo separador -->
-        <hr class="custom-separator" data-aos="fade-up">
-
-        <!-- Detalles del evento -->
-        <div class="invitation-details" id="invitation-details" data-aos="fade-up">
-            <h3>Detalles del evento:</h3>
-            <p>Fecha: 25 de Octubre de 2025</p>
-            <p>Hora: 5:00 PM</p>
-            <p>Ubicación: <strong>Lugar de la boda</strong></p>
-            <p>¡Esperamos verte allí para celebrar con nosotros!</p>
-        </div>
-
-        <!-- Separador antes del botón -->
-        <hr class="custom-separator" data-aos="fade-up">
-
-        <!-- Botón de confirmación -->
-        <a href="/confirmacion" class="confirmation-button" data-aos="fade-up">
-            Confirmar Asistencia
-        </a>
-
-        <!-- Separador al final -->
-        <hr class="custom-separator" data-aos="fade-up">
     </div>
-
-    <!-- AOS JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init();  // Inicializa la animación on scroll
-
-        // Temporizador de cuenta regresiva
-        const countDownDate = new Date("2025-10-25T17:00:00").getTime();
-
-        const countdownFunction = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = countDownDate - now;
-
-            // Cálculos para días, horas, minutos y segundos
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Actualizar el contenido del temporizador
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-
-            // Si la cuenta regresiva ha terminado
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.getElementById("countdown").innerHTML = "¡La boda ha comenzado!";
-            }
-        }, 1000);
-
-        // Función para alternar el audio
-        function toggleAudio() {
-            const audio = document.getElementById("audio");
-            const playPauseIcon = document.getElementById("play-pause-icon");
-            const audioStatus = document.getElementById("audio-status");
-            if (audio.paused) {
-                audio.play();
-                playPauseIcon.textContent = "❚❚"; // Cambia el icono a pausa
-                audioStatus.textContent = "Pausar";
-                // Inicia la animación de las ondas
-                document.querySelectorAll('.wave').forEach(wave => {
-                    wave.style.animation = 'wave-animation 1s infinite';
-                });
-            } else {
-                audio.pause();
-                playPauseIcon.textContent = "▶"; // Cambia el icono a play
-                audioStatus.textContent = "Nuestra canción";
-                // Detiene la animación de las ondas
-                document.querySelectorAll('.wave').forEach(wave => {
-                    wave.style.animation = 'none';
-                });
-            }
-        }
-    </script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
