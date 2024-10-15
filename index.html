@@ -4,64 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <title>Invitación de Boda</title>
-    <style>
-        /* Estilo para el contenedor de audio */
-        .audio-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        /* Estilos para el botón de audio */
-        .audio-button {
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px 20px;
-            border: 2px solid #c2a386;
-            border-radius: 25px;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .audio-button:hover {
-            background-color: #f1c40f;
-            transform: scale(1.05);
-        }
-
-        .audio-status {
-            font-size: 1.2em;
-            margin-left: 10px;
-        }
-
-        .audio-waveform {
-            display: flex;
-            align-items: flex-end;
-            margin-left: 10px;
-            height: 20px;
-        }
-
-        .wave {
-            width: 6px;
-            height: 10px;
-            background-color: #c2a386;
-            margin: 0 2px;
-            animation: wave-animation 1s infinite;
-        }
-
-        @keyframes wave-animation {
-            0%, 100% {
-                height: 10px;
-            }
-            50% {
-                height: 20px;
-            }
-        }
-    </style>
 </head>
 <body>
 
@@ -73,7 +18,7 @@
 
         <!-- Botón de audio -->
         <div class="audio-container" data-aos="fade-up">
-            <audio id="audio" src="static/Music/Music.m4a" preload="auto"></audio>
+            <audio id="audio" src="{{ url_for('static', filename='Music/Music.m4a') }}" preload="auto"></audio>
             <div class="audio-button" id="audio-button" onclick="toggleAudio()">
                 <span id="play-pause-icon" class="play-icon">▶</span>
                 <span id="audio-status" class="audio-status">Nuestra canción</span>
@@ -89,10 +34,10 @@
 
         <!-- Imagen de la pareja -->
         <div style="position: relative;">
-            <img src="static/images/pareja.jpg" alt="Camila y Jaidden" class="couple-image" data-aos="fade-up">
+            <img src="{{ url_for('static', filename='images/pareja.jpg') }}" alt="Camila y Jaidden" class="couple-image" data-aos="fade-up">
         </div>
 
-        <!-- Separador -->
+        <!-- Separador de color crema/café claro -->
         <hr class="custom-separator" data-aos="fade-up">
 
         <!-- Temporizador de cuenta regresiva -->
@@ -133,6 +78,9 @@
             <p>¡Esperamos verte allí para celebrar con nosotros!</p>
         </div>
 
+        <!-- Separador antes del botón -->
+        <hr class="custom-separator" data-aos="fade-up">
+
         <!-- Botón de confirmación -->
         <a href="/confirmacion" class="confirmation-button" data-aos="fade-up">
             Confirmar Asistencia
@@ -145,29 +93,31 @@
     <!-- AOS JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init();  // Inicializa la animación on scroll
 
         // Temporizador de cuenta regresiva
-        const countdown = document.getElementById("countdown");
-        const targetDate = new Date("2025-10-25T17:00:00").getTime();
+        const countDownDate = new Date("2025-10-25T17:00:00").getTime();
 
-        const interval = setInterval(() => {
+        const countdownFunction = setInterval(() => {
             const now = new Date().getTime();
-            const distance = targetDate - now;
+            const distance = countDownDate - now;
 
+            // Cálculos para días, horas, minutos y segundos
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").textContent = days;
-            document.getElementById("hours").textContent = hours;
-            document.getElementById("minutes").textContent = minutes;
-            document.getElementById("seconds").textContent = seconds;
+            // Actualizar el contenido del temporizador
+            document.getElementById("days").innerHTML = days;
+            document.getElementById("hours").innerHTML = hours;
+            document.getElementById("minutes").innerHTML = minutes;
+            document.getElementById("seconds").innerHTML = seconds;
 
+            // Si la cuenta regresiva ha terminado
             if (distance < 0) {
-                clearInterval(interval);
-                countdown.innerHTML = "¡La boda ha comenzado!";
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "¡La boda ha comenzado!";
             }
         }, 1000);
 
@@ -178,20 +128,23 @@
             const audioStatus = document.getElementById("audio-status");
             if (audio.paused) {
                 audio.play();
-                playPauseIcon.textContent = "❚❚";
+                playPauseIcon.textContent = "❚❚"; // Cambia el icono a pausa
                 audioStatus.textContent = "Pausar";
+                // Inicia la animación de las ondas
                 document.querySelectorAll('.wave').forEach(wave => {
                     wave.style.animation = 'wave-animation 1s infinite';
                 });
             } else {
                 audio.pause();
-                playPauseIcon.textContent = "▶";
+                playPauseIcon.textContent = "▶"; // Cambia el icono a play
                 audioStatus.textContent = "Nuestra canción";
+                // Detiene la animación de las ondas
                 document.querySelectorAll('.wave').forEach(wave => {
                     wave.style.animation = 'none';
                 });
             }
         }
     </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
