@@ -1,14 +1,6 @@
-// Definir la fecha de la boda
+// Temporizador de cuenta regresiva
 const countDownDate = new Date("2025-10-25T17:00:00").getTime();
 
-// Obtener las referencias a los elementos una vez
-const daysElement = document.getElementById("days");
-const hoursElement = document.getElementById("hours");
-const minutesElement = document.getElementById("minutes");
-const secondsElement = document.getElementById("seconds");
-const countdownElement = document.getElementById("countdown");
-
-// Función para actualizar el temporizador
 const countdownFunction = setInterval(() => {
     const now = new Date().getTime();
     const distance = countDownDate - now;
@@ -19,15 +11,33 @@ const countdownFunction = setInterval(() => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+    // Actualizar el contenido del temporizador
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+
     // Si la cuenta regresiva ha terminado
     if (distance < 0) {
         clearInterval(countdownFunction);
-        countdownElement.innerHTML = "¡La boda ha comenzado!";
-    } else {
-        // Actualizar el contenido del temporizador
-        daysElement.innerHTML = days;
-        hoursElement.innerHTML = hours;
-        minutesElement.innerHTML = minutes;
-        secondsElement.innerHTML = seconds;
+        document.getElementById("countdown").innerHTML = "¡La boda ha comenzado!";
     }
 }, 1000);
+
+function toggleAudio() {
+    const audio = document.getElementById("audio");
+    const playIcon = document.querySelector(".play-icon");
+    const audioStatus = document.querySelector(".audio-status");
+
+    if (audio.paused) {
+        audio.play();
+        playIcon.classList.remove("fa-play");
+        playIcon.classList.add("fa-pause");
+        audioStatus.textContent = "Pausar Música";
+    } else {
+        audio.pause();
+        playIcon.classList.remove("fa-pause");
+        playIcon.classList.add("fa-play");
+        audioStatus.textContent = "Reproducir Música";
+    }
+}

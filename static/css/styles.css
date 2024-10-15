@@ -42,8 +42,6 @@ body {
     height: auto;
     border-radius: 10px;
     margin-bottom: 20px;
-    position: relative; /* Para que el contenido superior se posicione correctamente */
-    z-index: 1; /* Asegura que la imagen esté debajo */
 }
 
 .countdown {
@@ -105,9 +103,6 @@ body {
 /* Estilos para el botón de audio */
 .audio-container {
     text-align: center;
-    position: relative; /* Para permitir la superposición */
-    margin-bottom: -50px; /* Para que el reproductor se superponga a la imagen */
-    z-index: 10; /* Asegúrate de que esté por encima de la imagen */
 }
 
 .audio-button {
@@ -162,22 +157,5 @@ body {
 @media (max-width: 768px) {
     .invitation-container {
         padding: 20px;
-    }
-
-    .audio-button {
-        flex-direction: row;
-        padding: 5px;
-    }
-
-    .audio-waveform {
-        display: none; /* Oculta las barras en pantallas pequeñas para más simplicidad */
-    }
-
-    .play-icon {
-        font-size: 1.2em;
-    }
-
-    .audio-status {
-        font-size: 0.9em;
     }
 }

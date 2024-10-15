@@ -4,65 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda</title>
-    <link rel="stylesheet" href="static/css/styles.css">
-    <script src="static/js/script.js" defer></script>
+    <link rel="stylesheet" href="static/styles/styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="invitation-container">
         <div class="invitation-header">
-            <h1>Camila y Jaidden</h1>
-            <h2>Están felices de invitarte a su boda</h2>
+            <h1>¡Estás Invitado!</h1>
+            <h2>Camila y Jaidden</h2>
         </div>
-
-        <!-- Reproductor de audio -->
+        <img src="static/images/pareja.jpg" alt="Pareja" class="couple-image">
+        
         <div class="audio-container">
-            <div class="audio-button" id="audioButton">
+            <div class="audio-button" onclick="toggleAudio()">
                 <div class="audio-waveform">
                     <div class="wave"></div>
                     <div class="wave"></div>
                     <div class="wave"></div>
+                    <div class="wave"></div>
                 </div>
-                <span class="play-icon">▶️</span>
-                <span class="audio-status">Reproducir música</span>
+                <i class="fas fa-play play-icon"></i>
+                <span class="audio-status">Reproducir Música</span>
             </div>
-            <audio id="audio" src="static/music/Music.m4a"></audio>
+            <audio id="audio" src="static/music/Music.m4a" preload="auto"></audio>
         </div>
 
-        <img src="static/images/pareja.jpg" alt="Camila y Jaidden" class="couple-image">
-        
-        <div class="countdown" id="countdown">
-            <div class="countdown-title">Faltan</div>
+        <div id="countdown" class="countdown">
+            <div class="countdown-title">Faltan:</div>
             <div class="countdown-time">
                 <div class="time-block">
                     <span id="days">00</span>
                     <span class="label">Días</span>
                 </div>
-                <div class="separator">:</div>
+                <span class="separator">:</span>
                 <div class="time-block">
                     <span id="hours">00</span>
                     <span class="label">Horas</span>
                 </div>
-                <div class="separator">:</div>
+                <span class="separator">:</span>
                 <div class="time-block">
                     <span id="minutes">00</span>
                     <span class="label">Minutos</span>
                 </div>
-                <div class="separator">:</div>
+                <span class="separator">:</span>
                 <div class="time-block">
                     <span id="seconds">00</span>
                     <span class="label">Segundos</span>
                 </div>
             </div>
         </div>
-        
+
         <div class="invitation-details">
-            <p>Te esperamos el 25 de octubre de 2025 a las 17:00 horas.</p>
-            <p>Lugar: Jardines de la Ciudad</p>
+            <p>Te esperamos el 25 de octubre de 2025 en la ciudad.</p>
         </div>
-        
-        <a href="#" class="confirmation-button">Confirmar asistencia</a>
+
+        <a href="confirmacion.html" class="confirmation-button">Confirmar Asistencia</a>
     </div>
-    
-    <hr class="custom-separator">
+
+    <script src="static/js/script.js"></script>
 </body>
 </html>
