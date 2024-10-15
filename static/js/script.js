@@ -30,7 +30,9 @@ function toggleAudio() {
     const audioStatus = document.querySelector(".audio-status");
 
     if (audio.paused) {
-        audio.play();
+        audio.play().catch(error => {
+            console.error("Error al reproducir el audio:", error);
+        });
         playIcon.classList.remove("fa-play");
         playIcon.classList.add("fa-pause");
         audioStatus.textContent = "Pausar Música";

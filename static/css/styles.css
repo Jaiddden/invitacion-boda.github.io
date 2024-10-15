@@ -1,14 +1,4 @@
-/* Separadores personalizados */
-.custom-separator {
-    border: none;
-    border-top: 2px solid #c2a386; /* Color suave */
-    margin: 50px 0; /* Aumentar el margen superior e inferior */
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Otros estilos */
+/* Estilos generales */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f0f0f0;
@@ -140,12 +130,12 @@ body {
         height: 20px;
     }
     50% {
-        height: 30px; /* Cambio en la altura de la barra */
+        height: 30px;
     }
 }
 
 .play-icon {
-    font-size: 1.5em; /* Tamaño del icono de reproducción */
+    font-size: 1.5em;
 }
 
 .audio-status {
@@ -157,5 +147,30 @@ body {
 @media (max-width: 768px) {
     .invitation-container {
         padding: 20px;
+    }
+
+    .invitation-header h1 {
+        font-size: 2em;
+    }
+
+    .invitation-header h2 {
+        font-size: 1.2em;
+    }
+
+    .countdown-time span {
+        font-size: 1.2em; /* Tamaño de los números */
+    }
+
+    .separator {
+        font-size: 1.2em; /* Tamaño de los dos puntos */
+    }
+
+    .label {
+        font-size: 0.7em; /* Tamaño más pequeño para las etiquetas */
+    }
+
+    .confirmation-button {
+        padding: 10px 20px;
+        font-size: 1em;
     }
 }
