@@ -11,41 +11,32 @@ const countdownFunction = setInterval(() => {
     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    // Actualizar el contenido del temporizador
-    document.getElementById("days").innerHTML = days;
-    document.getElementById("hours").innerHTML = hours;
-    document.getElementById("minutes").innerHTML = minutes;
-    document.getElementById("seconds").innerHTML = seconds;
+    // Mostrar resultados en los elementos
+    document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+    document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+    document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+    document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
 
     // Si la cuenta regresiva ha terminado
     if (distance < 0) {
         clearInterval(countdownFunction);
-        document.getElementById("countdown").innerHTML = "¡La boda ha comenzado!";
+        document.getElementById("countdown").innerHTML = "¡La boda ha llegado!";
     }
 }, 1000);
 
-// Control del audio
-const audio = document.getElementById('audio');
-const playPauseButton = document.getElementById('playPauseButton');
-const playIcon = document.querySelector('.play-icon');
-const audioStatus = document.querySelector('.audio-status');
+// Reproductor de música
+const audio = document.getElementById("audio");
+const audioButton = document.getElementById("audio-button");
+const audioStatus = document.querySelector(".audio-status");
 
-playPauseButton.addEventListener('click', () => {
+audioButton.addEventListener("click", () => {
     if (audio.paused) {
-        audio.play()
-            .then(() => {
-                playIcon.textContent = "⏸️"; // Cambia el icono a pausa
-                audioStatus.textContent = "Pausar Música";
-                playPauseButton.classList.add('audio-playing');
-            })
-            .catch(error => {
-                console.error("Error al intentar reproducir:", error);
-                alert("Por favor, permite la reproducción de audio en tu dispositivo.");
-            });
+        audio.play();
+        audioStatus.innerText = "Pausar Música";
+        audioButton.classList.add("playing");
     } else {
         audio.pause();
-        playIcon.textContent = "▶️"; // Cambia el icono a play
-        audioStatus.textContent = "Reproducir Música";
-        playPauseButton.classList.remove('audio-playing');
+        audioStatus.innerText = "Reproducir Música";
+        audioButton.classList.remove("playing");
     }
 });

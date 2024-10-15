@@ -3,62 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación de Boda</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="static/styles/styles.css">
     <script src="static/js/script.js" defer></script>
+    <title>Invitación de Boda</title>
 </head>
 <body>
     <div class="invitation-container">
         <div class="invitation-header">
-            <h1>¡Te invitamos a nuestra boda!</h1>
-            <h2>Camila y Jaidden</h2>
+            <h1>Camila & Jaidden</h1>
+            <h2>¡Te invitamos a nuestra boda!</h2>
         </div>
-        <img class="couple-image" src="static/pareja.jpg" alt="Camila y Jaidden">
         
         <div class="audio-container">
-            <div class="audio-button" id="playPauseButton">
+            <div class="audio-button" id="audio-button">
                 <div class="audio-waveform">
                     <div class="wave"></div>
                     <div class="wave"></div>
                     <div class="wave"></div>
-                    <div class="wave"></div>
                 </div>
-                <span class="play-icon">▶️</span>
+                <i class="play-icon">▶️</i>
                 <span class="audio-status">Reproducir Música</span>
             </div>
-            <audio id="audio" src="static/Music/Music.m4a" preload="auto"></audio>
+            <audio id="audio" src="static/Music/Music.m4a"></audio>
         </div>
 
-        <div class="countdown">
-            <div class="countdown-title">Faltan:</div>
+        <img src="static/images/pareja.jpg" alt="Pareja" class="couple-image">
+        
+        <div id="countdown" class="countdown">
+            <div class="countdown-title">Faltan</div>
             <div class="countdown-time">
                 <div class="time-block">
-                    <span id="days">0</span>
+                    <span id="days">00</span>
                     <span class="label">Días</span>
                 </div>
                 <div class="separator">:</div>
                 <div class="time-block">
-                    <span id="hours">0</span>
+                    <span id="hours">00</span>
                     <span class="label">Horas</span>
                 </div>
                 <div class="separator">:</div>
                 <div class="time-block">
-                    <span id="minutes">0</span>
+                    <span id="minutes">00</span>
                     <span class="label">Minutos</span>
                 </div>
                 <div class="separator">:</div>
                 <div class="time-block">
-                    <span id="seconds">0</span>
+                    <span id="seconds">00</span>
                     <span class="label">Segundos</span>
                 </div>
             </div>
         </div>
-
-        <hr class="custom-separator">
-
+        
         <div class="invitation-details">
-            <p>Te esperamos el 25 de octubre de 2025.</p>
-            <a href="confirmation.html" class="confirmation-button">Confirmar Asistencia</a>
+            <p>Fecha: 25 de Octubre de 2025</p>
+            <p>Ubicación: <a href="https://www.google.com/maps/place/Parroquia+San+F%C3%A9lix/@6.3390971,-75.6102896,1137m/data=!3m2!1e3!4b1!4m6!3m5!1s0x8e442e64c2fce76d:0xf6b9168f693b26d!8m2!3d6.3390918!4d-75.6077147!16s%2Fg%2F1tf2t86s?entry=ttu" target="_blank">Ver en Google Maps</a></p>
         </div>
     </div>
 </body>
