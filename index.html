@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="static/css/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <title>Invitación de Boda</title>
     <style>
         /* Estilo para el contenedor de audio */
         .audio-container {
-            text-align: center; /* Centra el contenido */
-            margin: 20px 0; /* Margen para separar del texto */
+            text-align: center;
+            margin: 20px 0;
         }
 
         /* Estilos para el botón de audio */
@@ -21,44 +21,44 @@
             align-items: center;
             justify-content: center;
             padding: 10px 20px;
-            border: 2px solid #c2a386; /* Borde alrededor del botón de audio */
-            border-radius: 25px; /* Esquinas redondeadas */
-            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el botón */
-            transition: background-color 0.3s ease, transform 0.3s ease; /* Transiciones suaves */
+            border: 2px solid #c2a386;
+            border-radius: 25px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .audio-button:hover {
-            background-color: #f1c40f; /* Color de fondo al pasar el ratón */
-            transform: scale(1.05); /* Efecto de aumento al pasar el ratón */
+            background-color: #f1c40f;
+            transform: scale(1.05);
         }
 
         .audio-status {
-            font-size: 1.2em; /* Tamaño del texto de estado */
-            margin-left: 10px; /* Espacio entre el icono y el texto */
+            font-size: 1.2em;
+            margin-left: 10px;
         }
 
         .audio-waveform {
             display: flex;
-            align-items: flex-end; /* Alinea las ondas al fondo */
-            margin-left: 10px; /* Espacio entre el texto y las ondas */
-            height: 20px; /* Altura de las ondas */
+            align-items: flex-end;
+            margin-left: 10px;
+            height: 20px;
         }
 
         .wave {
-            width: 6px; /* Ancho de las ondas */
-            height: 10px; /* Altura inicial de las ondas */
-            background-color: #c2a386; /* Color de la barra de audio */
+            width: 6px;
+            height: 10px;
+            background-color: #c2a386;
             margin: 0 2px;
-            animation: wave-animation 1s infinite; /* Animación de las ondas */
+            animation: wave-animation 1s infinite;
         }
 
         @keyframes wave-animation {
             0%, 100% {
-                height: 10px; /* Altura mínima */
+                height: 10px;
             }
             50% {
-                height: 20px; /* Altura máxima */
+                height: 20px;
             }
         }
     </style>
@@ -71,9 +71,9 @@
             <h2>Camila y Jaidden</h2>
         </div>
 
-        <!-- Botón de audio encima de la imagen, pero debajo del texto -->
+        <!-- Botón de audio -->
         <div class="audio-container" data-aos="fade-up">
-            <audio id="audio" src="{{ url_for('static', filename='Music/Music.m4a') }}" preload="auto"></audio>
+            <audio id="audio" src="static/Music/Music.m4a" preload="auto"></audio>
             <div class="audio-button" id="audio-button" onclick="toggleAudio()">
                 <span id="play-pause-icon" class="play-icon">▶</span>
                 <span id="audio-status" class="audio-status">Nuestra canción</span>
@@ -89,7 +89,7 @@
 
         <!-- Imagen de la pareja -->
         <div style="position: relative;">
-            <img src="{{ url_for('static', filename='images/pareja.jpg') }}" alt="Camila y Jaidden" class="couple-image" data-aos="fade-up">
+            <img src="static/images/pareja.jpg" alt="Camila y Jaidden" class="couple-image" data-aos="fade-up">
         </div>
 
         <!-- Separador de color crema/café claro -->
@@ -137,7 +137,7 @@
         <hr class="custom-separator" data-aos="fade-up">
 
         <!-- Botón de confirmación -->
-        <a href="/confirmacion" class="confirmation-button" data-aos="fade-up">
+        <a href="confirmacion.html" class="confirmation-button" data-aos="fade-up">
             Confirmar Asistencia
         </a>
 
@@ -148,7 +148,7 @@
     <!-- AOS JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script>
-        AOS.init();  // Inicializa la animación on scroll
+        AOS.init();
 
         // Temporizador de cuenta regresiva
         const countdown = document.getElementById("countdown");
@@ -168,7 +168,6 @@
             document.getElementById("minutes").textContent = minutes;
             document.getElementById("seconds").textContent = seconds;
 
-            // Si la cuenta regresiva termina
             if (distance < 0) {
                 clearInterval(interval);
                 countdown.innerHTML = "¡La boda ha comenzado!";
@@ -182,23 +181,20 @@
             const audioStatus = document.getElementById("audio-status");
             if (audio.paused) {
                 audio.play();
-                playPauseIcon.textContent = "❚❚"; // Cambia el icono a pausa
+                playPauseIcon.textContent = "❚❚";
                 audioStatus.textContent = "Pausar";
-                // Inicia la animación de las ondas
                 document.querySelectorAll('.wave').forEach(wave => {
                     wave.style.animation = 'wave-animation 1s infinite';
                 });
             } else {
                 audio.pause();
-                playPauseIcon.textContent = "▶"; // Cambia el icono a play
+                playPauseIcon.textContent = "▶";
                 audioStatus.textContent = "Nuestra canción";
-                // Detiene la animación de las ondas
                 document.querySelectorAll('.wave').forEach(wave => {
                     wave.style.animation = 'none';
                 });
             }
         }
     </script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
