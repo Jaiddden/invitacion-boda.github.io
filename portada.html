@@ -15,7 +15,6 @@
         body, html {
             height: 100%;
             overflow: hidden;
-            cursor: pointer; /* Cambia el cursor al pasar por encima */
             position: relative;
         }
 
@@ -45,16 +44,30 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Agrega sombra al texto */
             font-family: 'Arial', sans-serif; /* Cambia la fuente a una más bonita */
             z-index: 10; /* Asegúrate de que el texto esté por encima del video */
+            opacity: 0; /* Inicialmente oculto */
+            transition: opacity 1s ease; /* Transición suave para aparecer */
         }
     </style>
 </head>
-<body onclick="location.href='index.html'"> <!-- Redirige al hacer clic -->
+<body>
     <div class="video-container">
-        <video autoplay muted loop class="portada-video">
+        <video id="portadaVideo" class="portada-video" autoplay muted loop onloadeddata="showWelcomeText()">
             <source src="https://jaiddden.github.io/invitacion-boda.github.io/static/images/PORTADA.mp4" type="video/mp4">
             Tu navegador no soporta video.
         </video>
-        <div class="welcome-text">Bienvenidos a nuestra boda</div>
+        <div id="welcomeText" class="welcome-text">Bienvenidos a nuestra boda</div>
     </div>
+
+    <script>
+        function showWelcomeText() {
+            var welcomeText = document.getElementById('welcomeText');
+            welcomeText.style.opacity = 1; // Muestra el texto después de que el video esté listo
+        }
+
+        // Si deseas redirigir a la página de inicio después de unos segundos
+        setTimeout(function() {
+            location.href = 'index.html';
+        }, 10000); // Cambia el tiempo en milisegundos si es necesario
+    </script>
 </body>
 </html>
