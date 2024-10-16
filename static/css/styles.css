@@ -197,4 +197,27 @@ body {
     .fecha-text {
         font-size: 20px; /* Tamaño de la fuente para la fecha en móvil */
     }
+    
+    .play-pause-btn {
+        padding: 8px; /* Botón más pequeño */
+        font-size: 18px; /* Tamaño de texto más pequeño */
+    }
+    
+    .agendar-btn, .ubicacion-btn {
+        padding: 6px 12px; /* Botones más pequeños */
+    }
+}
+
+/* Media Queries para dispositivos más grandes */
+@media (min-width: 601px) {
+    .countdown-item span {
+        font-size: 24px; /* Tamaño de la fuente para el número en pantallas grandes */
+    }
+    .countdown-item span:last-child {
+        font-size: 14px; /* Tamaño de la fuente para el texto de la unidad en pantallas grandes */
+    }
+    
+    .fecha-text {
+        font-size: 24px; /* Tamaño de la fuente para la fecha en pantallas grandes */
+    }
 }
