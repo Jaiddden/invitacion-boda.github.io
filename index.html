@@ -8,15 +8,68 @@
     <script defer src="static/js/script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet"> <!-- Fuente personalizada -->
+    <style>
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .image-container {
+            position: relative;
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 20px; /* Ajusta este valor para mover el texto verticalmente */
+            width: 100%;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            font-style: italic;
+            color: #7D7D7D; /* Gris personalizado */
+        }
+
+        .names-container {
+            display: flex;
+            justify-content: center; /* Centra los nombres horizontalmente */
+            align-items: baseline; /* Alinea los nombres a la línea de base */
+            font-size: 1.5em;
+            color: #7D7D7D;
+            font-style: italic;
+        }
+
+        .names-container span {
+            margin: 0 10px; /* Ajusta el margen lateral entre los nombres */
+        }
+
+        .ampersand {
+            font-size: 2em; /* Aumenta el tamaño del ampersand */
+        }
+
+        .imagen-pareja {
+            width: 100%;
+            height: auto;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
-        <!-- Imagen -->
-        <div class="image-container">
-            <img src="static/images/pareja.jpg" alt="Imagen de la pareja" class="imagen-pareja">
-        </div>
 
-        <!-- Reproductor de Música -->
+        <!-- Imagen con texto superpuesto -->
+<div class="image-container">
+    <img src="static/images/pareja.jpg" alt="Imagen de la pareja" class="imagen-pareja">
+    <div class="text-overlay">
+        <div class="names-container">
+            <span class="name left">Jaidden</span>         
+            <span class="ampersand center">&</span> 
+            <span class="name right">Camila</span>   
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- Resto del contenido -->
         <div class="music-container">
             <div class="wave left-wave"></div>
             <audio id="music" src="https://jaiddden.github.io/invitacion-boda.github.io/static/Music/Music.mp3" preload="auto"></audio>
@@ -29,7 +82,7 @@
                 <div id="waveAnimation" class="wave right-wave"></div>
             </div>
         </div>
-        
+
         <!-- Texto Principal -->
         <h1>Nuestra boda</h1>
 
@@ -76,7 +129,7 @@
         <hr class="separador">
         
         <!-- Ubicación -->
-        <div class="ubicacion-container">
+        <div class="ubicacion-container fade-in">
             <h3><i class="fas fa-church"></i> Ceremonia Católica</h3>
             <p>Hora: 3:00 pm</p>
             <p>Capilla La China - San Félix</p>
@@ -84,34 +137,28 @@
                 <i class="fas fa-map-marker-alt"></i> Ver ubicación
             </a>
         </div>
+        <!-- Ubicación de la fiesta -->
+<div class="ubicacion-fiesta-container">
+    <h3>¡Celebremos el amor en un lugar mágico!</h3>
+    <div class="fiesta-container">
+        <img src="static/images/foto1.jpg" alt="Foto 1" class="foto-pequeña" onclick="openModal(this)">
+        <a href="https://www.google.com/maps/place/Fantas%C3%ADa+Campestre/@6.3962203,-75.6112698,1137m/data=!3m1!1e3!4m6!3m5!1s0x8e4431c468f9bdb1:0xb6d5374a09515f19!8m2!3d6.3962203!4d-75.6112698!16s%2Fg%2F11v140gxy8?entry=ttu&g_ep=EgoyMDI0MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="ubicacion-btn">
+            <i class="fas fa-map-marker-alt"></i> Ver ubicación de la fiesta
+        </a>
+        <img src="static/images/foto2.jpg" alt="Foto 2" class="foto-pequeña" onclick="openModal(this)">
     </div>
+</div>
 
-    <!-- Código JavaScript para la cuenta regresiva -->
-    <script>
-        function updateCountdown() {
-            const eventDate = new Date('2025-10-25T00:00:00'); // Cambia la fecha de tu evento
-            const currentDate = new Date();
-            const totalSeconds = Math.floor((eventDate - currentDate) / 1000);
+<!-- Modal para mostrar imagen ampliada -->
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="img01">
+    <div id="caption"></div>
+</div>
 
-            const days = Math.floor(totalSeconds / 3600 / 24);
-            const hours = Math.floor(totalSeconds / 3600) % 24;
-            const minutes = Math.floor(totalSeconds / 60) % 60;
-            const seconds = totalSeconds % 60;
 
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
-            document.getElementById('seconds').textContent = seconds;
+</div>
 
-            // Si el evento ha pasado, detener el temporizador
-            if (totalSeconds <= 0) {
-                clearInterval(countdownInterval);
-                // Puedes poner un mensaje o redirigir a otra página aquí
-            }
-        }
-
-        // Actualiza el temporizador cada segundo
-        const countdownInterval = setInterval(updateCountdown, 1000);
-    </script>
+    </div>
 </body>
 </html>

@@ -49,3 +49,36 @@ document.addEventListener("DOMContentLoaded", function() {
     // Actualizar cuenta regresiva cada segundo
     const countdownInterval = setInterval(updateCountdown, 1000);
 });
+
+// Crear el Intersection Observer
+document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    });
+
+    elements.forEach((element) => {
+        observer.observe(element);
+    });
+});
+
+
+function openModal(img) {
+    const modal = document.getElementById("myModal");
+    const modalImg = document.getElementById("img01");
+    const captionText = document.getElementById("caption");
+
+    modal.style.display = "block"; // Mostrar el modal
+    modalImg.src = img.src; // Establecer la fuente de la imagen ampliada
+    captionText.innerHTML = img.alt; // Establecer el texto de la imagen
+}
+
+function closeModal() {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none"; // Ocultar el modal
+}

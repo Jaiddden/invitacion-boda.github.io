@@ -118,6 +118,7 @@ body {
     display: flex; /* Alinear los elementos horizontalmente */
     justify-content: center; /* Centrar los elementos */
     gap: 10px; /* Reducido espaciado entre elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
 }
 
 .countdown-item {
@@ -164,20 +165,40 @@ body {
 /* Estilo de la ubicación */
 .ubicacion-container {
     margin-top: 20px;
+    background-color: transparent; /* Asegúrate de que sea transparente */
+    padding: 10px; /* Puedes ajustar el relleno si es necesario */
+    border-radius: 10px; /* Ajusta el borde si quieres mantenerlo con bordes redondeados */
+
+    text-align: center; /* Centrar texto */
 }
 
-.ubicacion-btn {
-    display: inline-block;
-    background-color: #6c5ce7; /* Color del botón de ubicación */
+.ceremonia-titulo {
+    font-size: 28px; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    color: #6c5ce7; /* Color elegante */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+.ceremonia-hora,
+.ceremonia-lugar {
+    font-size: 20px; /* Tamaño de la fuente */
+    color: #333; /* Color del texto */
+    margin: 5px 0; /* Espaciado vertical */
+}
+
+.ceremonia-ubicacion {
+    display: inline-block; /* Hacerlo un botón */
+    background-color: #6c5ce7; /* Color del botón */
     color: white; /* Color del texto */
-    padding: 8px 16px; /* Reducido para mejor visualización */
-    border-radius: 5px;
+    padding: 8px 16px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
     text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s ease;
+    margin-top: 15px; /* Espaciado superior */
+    transition: background-color 0.3s ease; /* Efecto de transición */
 }
 
-.ubicacion-btn:hover {
-    background-color: #5a47c2; /* Color del botón de ubicación al pasar el mouse */
+.ceremonia-ubicacion:hover {
+    background-color: #5a47c2; /* Color al pasar el mouse */
 }
 
 /* Estilo del icono de la ubicación */
@@ -203,8 +224,16 @@ body {
         font-size: 18px; /* Tamaño de texto más pequeño */
     }
     
-    .agendar-btn, .ubicacion-btn {
+    .agendar-btn, .ubicacion-btn, .ceremonia-ubicacion {
         padding: 6px 12px; /* Botones más pequeños */
+    }
+
+    .ceremonia-hora, .ceremonia-lugar {
+        font-size: 18px; /* Tamaño de fuente más pequeño para móviles */
+    }
+
+    .ceremonia-titulo {
+        font-size: 24px; /* Tamaño de fuente más pequeño para móviles */
     }
 }
 
@@ -220,4 +249,104 @@ body {
     .fecha-text {
         font-size: 24px; /* Tamaño de la fuente para la fecha en pantallas grandes */
     }
+}
+
+/* Efecto de aparición */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px); /* Los elementos comenzarán un poco abajo */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0); /* Los elementos se moverán a su posición original */
+}
+
+.names-container {
+    display: flex; /* Usar flexbox para alinear los elementos */
+    justify-content: space-between; /* Distribuir espacio entre los elementos */
+    align-items: center; /* Alinear verticalmente */
+    font-size: 1.5em;
+    color: #7D7D7D;
+    font-style: italic;
+    width: 100%; /* Asegurar que el contenedor use todo el ancho disponible */
+}
+
+.name {
+    margin: 0; /* Eliminar margen para evitar espacio extra */
+}
+
+.left {
+    text-align: left; /* Alinear a la izquierda */
+    flex: 1; /* Permitir que ocupe el espacio necesario */
+}
+
+.center {
+    text-align: center; /* Centrar el ampersand */
+    flex: 0 0 auto; /* Mantener el tamaño del ampersand */
+}
+
+.right {
+    text-align: right; /* Alinear a la derecha */
+    flex: 1; /* Permitir que ocupe el espacio necesario */
+    text-align: right; /* Alinear el texto a la derecha */
+}
+
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Mantenerlo en la misma posición */
+    z-index: 1000; /* Asegurarse de que esté en la parte superior */
+    left: 0;
+    top: 0;
+    width: 100%; /* Tomar toda la pantalla */
+    height: 100%; /* Tomar toda la pantalla */
+    overflow: auto; /* Habilitar desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%; /* Ancho de la imagen en el modal */
+    height: auto; /* Mantener la proporción de la imagen */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white; /* Color del icono de cerrar */
+    font-size: 40px; /* Tamaño del icono de cerrar */
+    font-weight: bold; /* Negrita */
+    transition: 0.3s; /* Transición suave */
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb; /* Color al pasar el mouse */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    text-align: center; /* Centrar texto */
+    color: white; /* Color del texto */
+    padding: 10px 0; /* Espaciado superior e inferior */
+}
+
+.foto-pequeña {
+    width: 100px; /* Ajusta el ancho como desees */
+    height: auto; /* Mantener la proporción */
+    margin: 0 10px; /* Espaciado horizontal entre las fotos */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+    border: 2px solid #ccc; /* Borde opcional para las fotos */
+    border-radius: 8px; /* Bordes redondeados opcionales */
+    transition: transform 0.2s; /* Transición suave al hacer hover */
+}
+
+.foto-pequeña:hover {
+    transform: scale(1.1); /* Aumentar el tamaño al pasar el mouse */
 }
