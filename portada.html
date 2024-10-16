@@ -30,29 +30,14 @@
             height: 100%;
             object-fit: cover;
         }
-
-        /* Texto sobre el video */
-        .overlay {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            text-align: center;
-        }
     </style>
 </head>
 <body onclick="location.href='index.html'"> <!-- Redirige al hacer clic -->
     <div class="video-container">
         <video autoplay muted loop class="portada-video">
-            <source src="https://jaiddden.github.io/invitacion-boda.github.io/static/images/PORTADA.mp4" type="video/mp4">
+            <source src="static/images/PORTADA.mp4" type="video/mp4">
             Tu navegador no soporta video.
         </video>
-        <div class="overlay">
-            <h1>Bienvenidos a nuestra boda</h1>
-        </div>
     </div>
 </body>
 </html>
