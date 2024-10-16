@@ -350,3 +350,44 @@ body {
 .foto-pequeña:hover {
     transform: scale(1.1); /* Aumentar el tamaño al pasar el mouse */
 }
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.image-container {
+    position: relative;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 20px; /* Ajusta este valor para mover el texto verticalmente */
+    width: 100%;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-style: italic;
+    color: #7D7D7D; /* Gris personalizado */
+}
+
+.names-container {
+    display: flex;
+    justify-content: center; /* Centra los nombres horizontalmente */
+    align-items: baseline; /* Alinea los nombres a la línea de base */
+    font-size: 1.5em;
+    color: #7D7D7D;
+    font-style: italic;
+}
+
+.names-container span {
+    margin: 0 10px; /* Ajusta el margen lateral entre los nombres */
+}
+
+.ampersand {
+    font-size: 2em; /* Aumenta el tamaño del ampersand */
+}
+
+.imagen-pareja {
+    width: 100%;
+    height: auto;
+}
