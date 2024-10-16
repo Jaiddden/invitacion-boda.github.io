@@ -16,10 +16,16 @@
             height: 100%;
             overflow: hidden;
             cursor: pointer; /* Cambia el cursor al pasar por encima */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white; /* Color del texto */
+            position: relative; /* Para posicionar el texto sobre el video */
         }
 
         .video-container {
-            position: relative;
+            position: absolute; /* Cambiado a absolute para cubrir todo el fondo */
             width: 100%;
             height: 100%;
             overflow: hidden;
@@ -30,6 +36,16 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .welcome-text {
+            position: absolute; /* Posiciona el texto sobre el video */
+            top: 20%; /* Ajusta la posición vertical del texto */
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em; /* Tamaño de la fuente */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para mejorar la legibilidad */
+            font-family: 'Arial', sans-serif; /* Cambia a la fuente que prefieras */
+        }
     </style>
 </head>
 <body onclick="location.href='index.html'"> <!-- Redirige al hacer clic -->
@@ -38,6 +54,9 @@
             <source src="static/images/PORTADA.mp4" type="video/mp4">
             Tu navegador no soporta video.
         </video>
+    </div>
+    <div class="welcome-text">
+        Bienvenidos a nuestra boda
     </div>
 </body>
 </html>
