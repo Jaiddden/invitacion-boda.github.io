@@ -1,1 +1,58 @@
-"" 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portada - Nuestra Boda</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .portada-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Texto sobre el video */
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+    </style>
+</head>
+<body onclick="location.href='index.html'"> <!-- Redirige al hacer clic -->
+    <div class="video-container">
+        <video autoplay muted loop class="portada-video">
+            <source src="https://jaiddden.github.io/invitacion-boda.github.io/static/images/PORTADA.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+        <div class="overlay">
+            <h1>Bienvenidos a nuestra boda</h1>
+        </div>
+    </div>
+</body>
+</html>
