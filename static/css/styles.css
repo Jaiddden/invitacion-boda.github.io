@@ -12,19 +12,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 120vh;
+    min-height: 100vh;
 }
 
 /* Contenedor principal */
 .container {
     text-align: center;
     max-width: 600px;
-    width: 100%;
+    width: 90%; /* Cambiado a 90% para ser más responsivo */
     padding: 20px;
     background-color: white;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    margin: 40px 0;
+    margin: 20px 0; /* Reducido margen */
 }
 
 /* Estilo de separadores */
@@ -37,9 +37,9 @@ body {
 
 /* Imagen */
 .image-container img {
-    width: 90%;
+    width: 100%; /* Cambiado a 100% para mejor responsividad */
     border-radius: 15px;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Reducido margen */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -53,8 +53,8 @@ body {
 
 .wave {
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 50px; /* Reducido para mejor visualización */
+    height: 50px; /* Reducido para mejor visualización */
     border-radius: 50%; /* Forma circular */
     background: linear-gradient(135deg, rgba(108, 92, 231, 0.7), transparent); /* Degradado en color */
     animation: wave-animation 1.5s infinite; /* Animación de ondas */
@@ -92,8 +92,8 @@ body {
     background-color: #6c5ce7; /* Color elegante */
     border: none;
     border-radius: 50%;
-    padding: 15px;
-    font-size: 24px;
+    padding: 10px; /* Reducido para mejor visualización */
+    font-size: 20px; /* Reducido para mejor visualización */
     color: white;
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -117,7 +117,7 @@ body {
 .countdown {
     display: flex; /* Alinear los elementos horizontalmente */
     justify-content: center; /* Centrar los elementos */
-    gap: 20px; /* Espaciado entre elementos */
+    gap: 10px; /* Reducido espaciado entre elementos */
 }
 
 .countdown-item {
@@ -126,13 +126,13 @@ body {
 
 .countdown-item span {
     display: block; /* Mostrar como bloque para el espaciado */
-    font-size: 36px; /* Tamaño de la fuente para el número */
+    font-size: 24px; /* Tamaño de la fuente para el número en móvil */
     font-weight: bold; /* Hacer el número más grueso */
-    letter-spacing: 5px; /* Espaciado entre letras */
+    letter-spacing: 3px; /* Reducido espaciado entre letras */
 }
 
 .countdown-item span:last-child {
-    font-size: 18px; /* Tamaño de la fuente para el texto de la unidad */
+    font-size: 14px; /* Tamaño de la fuente para el texto de la unidad en móvil */
 }
 
 /* Estilo de texto de fecha */
@@ -141,7 +141,7 @@ body {
 }
 
 .fecha-text {
-    font-size: 28px; /* Tamaño de la fuente para la fecha */
+    font-size: 24px; /* Tamaño de la fuente para la fecha */
     color: #333; /* Color de la fecha */
     margin-bottom: 20px;
 }
@@ -151,7 +151,7 @@ body {
     display: inline-block;
     background-color: #6c5ce7; /* Color del botón */
     color: white; /* Color del texto */
-    padding: 10px 20px;
+    padding: 8px 16px; /* Reducido para mejor visualización */
     border-radius: 5px;
     text-decoration: none; /* Sin subrayado */
     transition: background-color 0.3s ease;
@@ -170,7 +170,7 @@ body {
     display: inline-block;
     background-color: #6c5ce7; /* Color del botón de ubicación */
     color: white; /* Color del texto */
-    padding: 10px 20px;
+    padding: 8px 16px; /* Reducido para mejor visualización */
     border-radius: 5px;
     text-decoration: none; /* Sin subrayado */
     transition: background-color 0.3s ease;
@@ -183,4 +183,18 @@ body {
 /* Estilo del icono de la ubicación */
 .ubicacion-container h3 i {
     margin-right: 5px;
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+    .countdown-item span {
+        font-size: 20px; /* Tamaño de la fuente para el número en móvil */
+    }
+    .countdown-item span:last-child {
+        font-size: 12px; /* Tamaño de la fuente para el texto de la unidad en móvil */
+    }
+    
+    .fecha-text {
+        font-size: 20px; /* Tamaño de la fuente para la fecha en móvil */
+    }
 }

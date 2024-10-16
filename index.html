@@ -54,19 +54,19 @@
             <h2>Faltan...</h2>
             <div class="countdown">
                 <div class="countdown-item">
-                    <span class="days" id="days"></span>
+                    <span id="days">0</span>
                     <span>Días</span>
                 </div>
                 <div class="countdown-item">
-                    <span class="hours" id="hours"></span>
+                    <span id="hours">0</span>
                     <span>Horas</span>
                 </div>
                 <div class="countdown-item">
-                    <span class="minutes" id="minutes"></span>
+                    <span id="minutes">0</span>
                     <span>Minutos</span>
                 </div>
                 <div class="countdown-item">
-                    <span class="seconds" id="seconds"></span>
+                    <span id="seconds">0</span>
                     <span>Segundos</span>
                 </div>
             </div>
@@ -85,5 +85,33 @@
             </a>
         </div>
     </div>
+
+    <!-- Código JavaScript para la cuenta regresiva -->
+    <script>
+        function updateCountdown() {
+            const eventDate = new Date('2025-10-25T00:00:00'); // Cambia la fecha de tu evento
+            const currentDate = new Date();
+            const totalSeconds = Math.floor((eventDate - currentDate) / 1000);
+
+            const days = Math.floor(totalSeconds / 3600 / 24);
+            const hours = Math.floor(totalSeconds / 3600) % 24;
+            const minutes = Math.floor(totalSeconds / 60) % 60;
+            const seconds = totalSeconds % 60;
+
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+
+            // Si el evento ha pasado, detener el temporizador
+            if (totalSeconds <= 0) {
+                clearInterval(countdownInterval);
+                // Puedes poner un mensaje o redirigir a otra página aquí
+            }
+        }
+
+        // Actualiza el temporizador cada segundo
+        const countdownInterval = setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
