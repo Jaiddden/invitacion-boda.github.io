@@ -523,13 +523,19 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-    .your-button-class {
-        width: 100%; /* Asegúrate de que el botón ocupe todo el ancho disponible */
-        margin: 10px 0; /* Añadir un margen para separarlos mejor */
+    .your-image-class {
+        width: 100%;
+        height: auto;
     }
 
-    .your-image-class {
-        width: 100%; /* Asegúrate de que las imágenes se ajusten al ancho */
-        height: auto; /* Mantén la relación de aspecto */
+    .your-button-class {
+        width: 100%; /* Ajusta el ancho del botón */
+        margin: 10px 0; /* Añade espacio alrededor del botón */
+    }
+
+    /* Espaciado de los contenedores */
+    .section-class {
+        padding: 20px; /* Espacio para que no se vea tan amontonado */
     }
 }
+
