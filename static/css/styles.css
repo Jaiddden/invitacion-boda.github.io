@@ -538,4 +538,22 @@ body {
         padding: 20px; /* Espacio para que no se vea tan amontonado */
     }
 }
+@media only screen and (max-width: 600px) {
+    .countdown-text {
+        font-size: 1.2em; /* Reduce el tamaño de las letras */
+    }
+
+    .countdown-number {
+        font-size: 2.5em; /* Reduce el tamaño de los números */
+        margin-bottom: 5px; /* Añade espacio entre los números y el texto */
+    }
+}
+@media only screen and (max-width: 600px) {
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Cambia la dirección de los botones a vertical */
+        align-items: center; /* Centra los botones */
+    }
+}
+
 
