@@ -42,6 +42,96 @@ body {
     margin-bottom: 20px; /* Reducido margen */
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
+.music-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#music-btn-container {
+    position: relative;
+    z-index: 2; /* Asegúrate de que el botón esté encima de las ondas */
+    display: flex;
+    align-items: center;
+}
+
+.play-pause-btn {
+    background-color: #6a5acd; /* Color del botón */
+    color: white; /* Color del ícono */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Botón redondo */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+    font-size: 24px; /* Tamaño del ícono */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    outline: none; /* Sin borde al hacer clic */
+    transition: background-color 0.3s ease; /* Efecto de transición al cambiar de color */
+}
+
+.play-pause-btn:hover {
+    background-color: #5a4fb1; /* Color del botón al pasar el mouse */
+}
+
+.song-label {
+    margin-left: 10px; /* Espaciado entre el botón y el texto */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+}
+
+/* Animación de pulso */
+.pulse {
+    position: absolute;
+    width: 80px; /* Ancho del pulso */
+    height: 80px; /* Alto del pulso */
+    border-radius: 50%; /* Forma circular */
+    background-color: rgba(106, 92, 205, 0.5); /* Color del pulso */
+    animation: pulse-animation 2s infinite; /* Animación */
+    opacity: 0; /* Inicia oculto */
+}
+
+
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        opacity: 0.5; /* Transparente al inicio */
+    }
+    50% {
+        transform: scale(1.5); /* Aumenta de tamaño */
+        opacity: 0.2; /* Más transparente en el medio */
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0; /* Vuelve a ser transparente */
+    }
+}
+
+/* Efecto de ondas */
+.wave {
+    position: absolute;
+    border-radius: 50%;
+    width: 100px; /* Ancho del efecto de onda */
+    height: 100px; /* Alto del efecto de onda */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgba(106, 92, 205, 0.3) 60%, rgba(0, 0, 0, 0.5) 100%);
+    animation: wave-animation 3s infinite; /* Animación de las ondas */
+    z-index: 1; /* Debajo del botón */
+}
+
+@keyframes wave-animation {
+    0% {
+        transform: scale(0);
+        opacity: 0; /* Invisible al inicio */
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1; /* Visible al medio */
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0; /* Invisible al final */
+    }
+}
 
 .music-container {
     display: flex;
@@ -556,4 +646,20 @@ body {
     }
 }
 
+.audio-container {
+    position: relative;
+    display: inline-block; /* Ajusta según necesites */
+}
+
+.waves {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Coloca las ondas justo debajo del botón */
+    left: 0;
+    width: 100%;
+    height: 50px; /* Ajusta la altura según tu diseño */
+    background: url('ruta_de_tu_imagen_de_ondas') no-repeat center;
+    background-size: cover; /* Asegúrate de que la imagen de ondas se ajuste */
+    /* Agrega más estilos según necesites */
+}
 

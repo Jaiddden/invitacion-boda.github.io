@@ -5,16 +5,17 @@ document.addEventListener("DOMContentLoaded", function() {
     const pulseAnimation = document.getElementById("pulseAnimation");
     let isPlaying = false;
 
+    // Manejo del botón de reproducción/pausa
     playPauseBtn.addEventListener("click", function() {
         if (isPlaying) {
-            music.pause();
-            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            music.pause(); // Pausar música
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>'; // Cambiar ícono a play
             waveAnimation.style.display = 'none'; // Ocultar ondas
             pulseAnimation.style.display = 'none'; // Ocultar pulso
             isPlaying = false;
         } else {
-            music.play();
-            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            music.play(); // Reproducir música
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>'; // Cambiar ícono a pausa
             waveAnimation.style.display = 'block'; // Mostrar ondas
             pulseAnimation.style.display = 'block'; // Mostrar pulso
             isPlaying = true;
@@ -57,17 +58,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add('visible'); // Añadir clase 'visible' al elemento que entra en vista
             }
         });
     });
 
     elements.forEach((element) => {
-        observer.observe(element);
+        observer.observe(element); // Observar cada elemento con la clase 'fade-in'
     });
 });
 
-
+// Función para abrir el modal
 function openModal(img) {
     const modal = document.getElementById("myModal");
     const modalImg = document.getElementById("img01");
@@ -78,6 +79,7 @@ function openModal(img) {
     captionText.innerHTML = img.alt; // Establecer el texto de la imagen
 }
 
+// Función para cerrar el modal
 function closeModal() {
     const modal = document.getElementById("myModal");
     modal.style.display = "none"; // Ocultar el modal
