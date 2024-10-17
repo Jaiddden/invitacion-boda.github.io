@@ -521,3 +521,15 @@ body {
         margin-top: 10px;
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .your-button-class {
+        width: 100%; /* Asegúrate de que el botón ocupe todo el ancho disponible */
+        margin: 10px 0; /* Añadir un margen para separarlos mejor */
+    }
+
+    .your-image-class {
+        width: 100%; /* Asegúrate de que las imágenes se ajusten al ancho */
+        height: auto; /* Mantén la relación de aspecto */
+    }
+}
