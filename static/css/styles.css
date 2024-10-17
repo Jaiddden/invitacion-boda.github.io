@@ -483,3 +483,41 @@ body {
     font-size: 24px;
     margin-bottom: 5px;
 }
+
+
+/* Ajuste para que la página se vea bien en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .names-container {
+        font-size: 1.2em; /* Ajustar tamaño de fuente en pantallas pequeñas */
+    }
+
+    .countdown-item span {
+        font-size: 20px; /* Reducir el tamaño del número en pantallas pequeñas */
+    }
+
+    .countdown-item span:last-child {
+        font-size: 12px; /* Reducir el tamaño del texto de la unidad */
+    }
+
+    .agendar-btn {
+        padding: 6px 12px; /* Reducir el tamaño del botón de agendar en móviles */
+        font-size: 14px;
+    }
+
+    .separador {
+        width: 60%; /* Hacer el separador más largo en pantallas pequeñas */
+    }
+
+    .ubicacion-btn {
+        font-size: 14px; /* Ajustar el tamaño de la fuente del botón de ubicación */
+        padding: 8px 12px;
+    }
+
+    .ubicacion-container {
+        margin-top: 15px;
+    }
+
+    .music-container {
+        margin-top: 10px;
+    }
+}
