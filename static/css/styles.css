@@ -451,3 +451,35 @@ body {
 .foto-pequeña:hover {
     transform: scale(1.05); /* Efecto hover en las imágenes */
 }
+
+
+.ubicacion-flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacia los elementos a izquierda y derecha */
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ubicacion-flexbox img {
+    width: 150px; /* Tamaño de las imágenes */
+    height: auto;
+    cursor: pointer;
+}
+
+.ubicacion-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #6c5ce7; /* Color de fondo */
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.ubicacion-btn i {
+    display: block;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
