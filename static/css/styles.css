@@ -113,10 +113,12 @@ body {
     border-radius: 50%;
     width: 100px; /* Ancho del efecto de onda */
     height: 100px; /* Alto del efecto de onda */
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgba(106, 92, 205, 0.3) 60%, rgba(0, 0, 0, 0.5) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgba(38, 38, 39, 0.3) 60%, rgba(0, 0, 0, 0.5) 100%);
     animation: wave-animation 3s infinite; /* Animación de las ondas */
     z-index: 1; /* Debajo del botón */
 }
+
+
 
 @keyframes wave-animation {
     0% {
