@@ -16,39 +16,37 @@ body {
 }
 
 /* Contenedor principal */
+
 .container {
-    position: relative;
-    text-align: center;
-    max-width: 600px;  /* Mantén el ancho máximo si lo deseas */
-    width: 90%;         /* Cambiado a 90% para ser más responsivo */
-    padding: 20px;     /* Mantén el padding para separación */
-    background-color: white; /* Fondo blanco */
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Sombra */
+    max-width: 800px;  /* Ajusta el ancho máximo del contenedor */
+    width: 90%;         /* Ocupa el 90% del ancho de la pantalla en móviles */
+    padding: 20px;      /* Espacio interno alrededor del contenido */
+    background-color: white; /* Color de fondo blanco */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
     border-radius: 15px; /* Bordes redondeados */
-    margin: 20px auto;  /* Margin superior e inferior */
-    overflow: hidden;    /* Evita que el contenido sobresalga */
+    margin: 20px auto;  /* Margen superior e inferior y centrado */
 }
 
-/* Contenedor de imagen */
 .image-container {
-    position: relative;  /* Mantén el posicionamiento relativo */
+    position: relative;
+    width: 100%; /* Asegura que el contenedor de imagen use el 100% del ancho disponible */
 }
 
-/* Estilo de imagen dentro del contenedor de imagen */
 .image-container img {
-    max-width: 100%;     /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto;        /* Mantiene la relación de aspecto de la imagen */
-    display: block;      /* Elimina espacios en blanco debajo de la imagen */
-    margin: 0 auto;     /* Centra la imagen */
+    max-width: 100%;  /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto;      /* Mantiene la relación de aspecto de la imagen */
+    display: block;    /* Elimina espacios en blanco debajo de la imagen */
+    margin: 0 auto;    /* Centra la imagen */
 }
 
 /* Estilo de separadores */
 .separador {
     border: none;
-    border-top: 1px solid #d3d3d3; /* Separador superior */
-    width: 40%;            /* Ancho del separador */
-    margin: 20px auto;     /* Margen superior e inferior */
+    border-top: 1px solid #d3d3d3; /* Línea superior gris claro */
+    width: 40%; /* Ancho del separador */
+    margin: 20px auto; /* Margen automático para centrar */
 }
+
 
 
 /* Imagen */
