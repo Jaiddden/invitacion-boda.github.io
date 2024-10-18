@@ -446,11 +446,21 @@ body {
 .container {
     position: relative;
     text-align: center;
+    padding: 0 15px;  /* Añade espacio a los lados */
+    overflow: hidden;  /* Evita que el contenido sobresalga */
 }
 
 .image-container {
     position: relative;
 }
+
+.image-container img {
+    max-width: 100%;  /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto;      /* Mantiene la relación de aspecto de la imagen */
+    display: block;    /* Elimina espacios en blanco debajo de la imagen */
+    margin: 0 auto;    /* Centra la imagen */
+}
+
 
 .text-overlay {
     position: absolute;
