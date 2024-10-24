@@ -5,160 +5,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda</title>
     <link rel="stylesheet" href="static/css/styles.css">
-    <script defer src="static/js/script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet"> <!-- Fuente personalizada -->
-    <style>
-        .container {
-            position: relative;
-            text-align: center;
-        }
-
-        .image-container {
-            position: relative;
-        }
-
-        .text-overlay {
-            position: absolute;
-            top: 20px; /* Ajusta este valor para mover el texto verticalmente */
-            width: 100%;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-            font-style: italic;
-            color: #7D7D7D; /* Gris personalizado */
-        }
-
-        .names-container {
-            display: flex;
-            justify-content: center; /* Centra los nombres horizontalmente */
-            align-items: baseline; /* Alinea los nombres a la línea de base */
-            font-size: 1.5em;
-            color: #7D7D7D;
-            font-style: italic;
-        }
-
-        .names-container span {
-            margin: 0 10px; /* Ajusta el margen lateral entre los nombres */
-        }
-
-        .ampersand {
-            font-size: 2em; /* Aumenta el tamaño del ampersand */
-        }
-
-        .imagen-pareja {
-            width: 100%;
-            height: auto;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <!-- Imagen con texto superpuesto -->
+        <!-- Imagen principal -->
         <div class="image-container">
             <img src="static/images/pareja.jpg" alt="Imagen de la pareja" class="imagen-pareja">
-            <div class="text-overlay">
-                <div class="names-container">
-                    <span class="name left">Jaidden</span>         
-                    <span class="ampersand center">&</span> 
-                    <span class="name right">Camila</span>   
-                </div>
-            </div>
+            <div class="text-overlay">Jaidden & Camila</div>
         </div>
 
-        <!-- Resto del contenido Musical -->
+        <!-- Separador elegante -->
+        <hr class="elegant-separator">
+
+        <!-- Botón de música -->
         <div class="music-container">
-            <audio id="music" src="https://jaiddden.github.io/invitacion-boda.github.io/static/Music/Music.mp3" preload="auto"></audio>
-            <div id="music-btn-container">
-                <div id="pulseAnimation" class="pulse"></div> <!-- Efecto de pulso circular -->
-                <button id="playPauseBtn" class="play-pause-btn" aria-label="Play/Pause">
-                    <i class="fas fa-play"></i>
-                </button>
-                <span id="songLabel" class="song-label">Nuestra canción</span>
-                <div id="waveAnimation" class="wave right-wave"></div>
-            </div>
-        </div>
-        
-        <!-- Texto Principal -->
-        <h1>Nuestra boda</h1>
-
-        <!-- Separador -->
-        <hr class="separador">
-
-        <!-- Fecha y Cuenta Regresiva -->
-        <div class="fecha-container">
-            <h1 class="fecha-text">25 de octubre 2025</h1>
-            <div class="boton-agendar-container">
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Nuestra%20Boda&dates=20251025T150000Z/20251025T180000Z" target="_blank" class="agendar-btn">
-                    <i class="fas fa-calendar-alt"></i> Agendar fecha en tu calendario 
-                </a>
-            </div>
+            <audio id="music" src="static/music/music.mp3"></audio>
+            <button id="playPauseBtn" class="play-pause-btn">
+                <i class="fas fa-play"></i>
+            </button>
+            <span class="song-label">Nuestra Canción</span>
         </div>
 
-        <!-- Separador -->
-        <hr class="separador">
+        <!-- Título principal -->
+        <h1 class="title">Nuestra boda</h1>
+        <p class="wedding-date">25 de octubre 2025</p>
+
+        <!-- Botón de agendar -->
+        <button id="agendaBtn" class="agenda-btn">
+            <i class="fas fa-calendar-alt"></i> Agendar fecha en tu calendario
+        </button>
+
+        <!-- Separador elegante -->
+        <hr class="elegant-separator">
 
         <!-- Cuenta regresiva -->
         <div class="countdown-container">
-            <h2>Nuestro gran momento se acerca <i class="fas fa-ring" style="font-size: 30px; color: #000; vertical-align: middle;"></i><i class="fas fa-ring" style="font-size: 30px; color: #000; transform: rotate(90deg);"></i> </h2>
-
+            <h2>Nuestro gran momento se acerca <i class="fas fa-ring"></i></h2>
             <div class="countdown">
                 <div class="countdown-item">
                     <span id="days">0</span>
                     <span>Días</span>
                 </div>
                 <div class="countdown-item">
+                    <span class="separator">:</span>
                     <span id="hours">0</span>
                     <span>Horas</span>
                 </div>
                 <div class="countdown-item">
+                    <span class="separator">:</span>
                     <span id="minutes">0</span>
                     <span>Minutos</span>
                 </div>
                 <div class="countdown-item">
+                    <span class="separator">:</span>
                     <span id="seconds">0</span>
                     <span>Segundos</span>
                 </div>
             </div>
         </div>
 
-        <!-- Separador -->
-        <hr class="separador">
-        
-        <!-- Ubicación Ceremonia Católica -->
-        <div class="ubicacion-container fade-in">
-            <h3><i class="fas fa-church"></i> Ceremonia Católica</h3>
-            <p>Hora: 3:00 pm</p>
-            <p>Capilla La China - San Félix</p>
-            
-            <div class="ubicacion-flexbox">
-                <img src="https://raw.githubusercontent.com/Jaiddden/invitacion-boda.github.io/main/static/images/Foto3.jpg" alt="Foto 3" class="foto-pequeña" onclick="openModal(this)">
-                <a href="https://www.google.com/maps/place/Capilla+san+Judas+Tadeo/@6.3977815,-75.615431,17z/data=!3m1!4b1!4m6!3m5!1s0x8e44314b796be379:0x6c1105003a7e51dc!8m2!3d6.3977762!4d-75.6128561!16s%2Fg%2F11j1nxzsz_?entry=ttu&g_ep=EgoyMDI0MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="ubicacion-btn">
-                    <i class="fas fa-map-marker-alt"></i> 
-                    <span>Haz click aquí</span>
+        <!-- Separador elegante -->
+        <hr class="elegant-separator">
+
+        <!-- Sección de ubicaciones -->
+        <div class="ubicaciones-container">
+            <div class="ubicacion">
+                <div class="ubicacion-texto">
+                    <h2>Ceremonia Católica</h2>
+                    <p>Hora: 3:00 pm</p>
+                    <p>Capilla La China - San Félix</p>
+                </div>
+                <img src="static/images/Foto3.jpg" alt="Capilla La China - San Félix" class="foto-ubicacion" onclick="toggleZoom(this)">
+                <a href="https://www.google.com/maps/place/Capilla+San+Judas+Tadeo" target="_blank" class="ubicacion-btn">
+                    <i class="fas fa-map-marker-alt"></i> Haz click aquí
                 </a>
-                <img src="https://raw.githubusercontent.com/Jaiddden/invitacion-boda.github.io/main/static/images/Foto4.jpg" alt="Foto 4" class="foto-pequeña" onclick="openModal(this)">
+            </div>
+<!-- Separador elegante -->
+<hr class="elegant-separator">
+
+            <div class="ubicacion">
+                <div class="ubicacion-texto">
+                    <h2>Recepción</h2>
+                    <p>Fantasía Campestre</p>
+                </div>
+                <img src="static/images/Foto4.jpg" alt="Fantasía Campestre" class="foto-ubicacion" onclick="toggleZoom(this)">
+                <a href="https://www.google.com/maps/place/Fantasía+Campestre" target="_blank" class="ubicacion-btn">
+                    <i class="fas fa-map-marker-alt"></i> Haz click aquí
+                </a>
             </div>
         </div>
 
-        <!-- Ubicación de la fiesta -->
-        <div class="ubicacion-fiesta-container">
-            <h3><i class="fas fa-heart"></i>  <i class="fas fa-heart"></i> ¡Celebremos el amor en un lugar mágico!</h3>
-            <div class="fiesta-container">
-                <img src="https://raw.githubusercontent.com/Jaiddden/invitacion-boda.github.io/main/static/images/Foto1.jpg" alt="Foto 1" class="foto-pequeña" onclick="openModal(this)">
-                <a href="https://www.google.com/maps/place/Fantas%C3%ADa+Campestre/@6.3962203,-75.6112698,1137m/data=!3m1!1e3!4m6!3m5!1s0x8e4431c468f9bdb1:0xb6d5374a09515f19!8m2!3d6.3962203!4d-75.6112698!16s%2Fg%2F11v140gxy8?entry=ttu&g_ep=EgoyMDI0MTAxNC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="ubicacion-btn">
-                    <i class="fas fa-map-marker-alt"></i> 
-                    <span>Haz click aquí</span> <!-- Ícono de ubicación -->
-                </a>
-                <img src="https://raw.githubusercontent.com/Jaiddden/invitacion-boda.github.io/main/static/images/Foto2.jpg" alt="Foto 2" class="foto-pequeña" onclick="openModal(this)">
-            </div>
-        </div>
-        
-        <!-- Modal para mostrar imagen ampliada -->
-        <div id="myModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <img class="modal-content" id="img01">
-            <div id="caption"></div>
-        </div>
+<!-- Separador elegante -->
+<hr class="elegant-separator">
+
+<body>
+    <div class="container">
+        <h1>Bienvenidos a nuestra boda</h1>
+        <!-- Botón para confirmar asistencia -->
+        <button onclick="window.location.href='confirmation.html';" class="confirm-btn">
+            ¿Deseas confirmar asistencia?
+        </button>
     </div>
+
+    <!-- Scripts JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Asistencia</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Confirma tu Asistencia</h2>
+        <form id="confirmationForm">
+            <!-- Campo de nombre -->
+            <input type="text" name="name" placeholder="Tu nombre" required>
+
+            <!-- Campo de asistencia (Sí/No) -->
+            <label for="attendance">¿Asistirás?</label>
+            <select name="attendance" id="attendance" required>
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+            </select>
+
+            <!-- Campo de número de teléfono -->
+            <input type="tel" name="phone" placeholder="Tu número de teléfono" pattern="[0-9]{10}" required>
+
+            <!-- Campo de correo electrónico -->
+            <input type="email" name="email" placeholder="Tu correo electrónico" required>
+
+            <!-- Botón de confirmación -->
+            <button type="submit" class="confirm-btn">Confirmar Asistencia</button>
+        </form>
+    </div>
+
+    <!-- Script JS -->
+    <script src="static/js/script.js"></script>
+</body>
+</html>

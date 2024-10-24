@@ -1,4 +1,4 @@
-/* Reiniciar márgenes y rellenos */
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,667 +7,176 @@
 
 /* Estilo del cuerpo */
 body {
-    font-family: 'Poppins', sans-serif; /* Cambia la fuente del cuerpo */
-    background-color: #f9f9f9;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100vh;
 }
 
 /* Contenedor principal */
-
 .container {
-    max-width: 800px;  /* Ajusta el ancho máximo del contenedor */
-    width: 90%;         /* Ocupa el 90% del ancho de la pantalla en móviles */
-    padding: 20px;      /* Espacio interno alrededor del contenido */
-    background-color: white; /* Color de fondo blanco */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
-    border-radius: 15px; /* Bordes redondeados */
-    margin: 20px auto;  /* Margen superior e inferior y centrado */
-}
-
-.image-container {
-    position: relative;
-    width: 100%; /* Asegura que el contenedor de imagen use el 100% del ancho disponible */
-}
-
-.image-container img {
-    max-width: 100%;  /* Asegura que la imagen no exceda el ancho del contenedor */
-    height: auto;      /* Mantiene la relación de aspecto de la imagen */
-    display: block;    /* Elimina espacios en blanco debajo de la imagen */
-    margin: 0 auto;    /* Centra la imagen */
-}
-
-/* Estilo de separadores */
-.separador {
-    border: none;
-    border-top: 1px solid #d3d3d3; /* Línea superior gris claro */
-    width: 40%; /* Ancho del separador */
-    margin: 20px auto; /* Margen automático para centrar */
-}
-
-
-
-/* Imagen */
-.image-container img {
-    width: 100%; /* Cambiado a 100% para mejor responsividad */
+    max-width: 800px;
+    padding: 20px;
+    background-color: white;
     border-radius: 15px;
-    margin-bottom: 20px; /* Reducido margen */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-.music-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-#music-btn-container {
-    position: relative;
-    z-index: 2; /* Asegúrate de que el botón esté encima de las ondas */
-    display: flex;
-    align-items: center;
+/* Separador elegante */
+.elegant-separator {
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(to right, #7ddc90, #6a5acd);
+    margin: 20px auto; /* Centrado */
+    border: none;
 }
 
+/* Estilo del botón de música */
 .play-pause-btn {
-    background-color: #6a5acd; /* Color del botón */
-    color: white; /* Color del ícono */
-    border: none; /* Sin borde */
-    border-radius: 50%; /* Botón redondo */
-    width: 60px; /* Ancho del botón */
-    height: 60px; /* Alto del botón */
-    font-size: 24px; /* Tamaño del ícono */
-    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
-    outline: none; /* Sin borde al hacer clic */
-    transition: background-color 0.3s ease; /* Efecto de transición al cambiar de color */
-}
-
-.play-pause-btn:hover {
-    background-color: #5a4fb1; /* Color del botón al pasar el mouse */
-}
-
-.song-label {
-    margin-left: 10px; /* Espaciado entre el botón y el texto */
-    font-size: 18px; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-}
-
-/* Animación de pulso */
-.pulse {
-    position: absolute;
-    width: 80px; /* Ancho del pulso */
-    height: 80px; /* Alto del pulso */
-    border-radius: 50%; /* Forma circular */
-    background-color: rgba(106, 92, 205, 0.5); /* Color del pulso */
-    animation: pulse-animation 2s infinite; /* Animación */
-    opacity: 0; /* Inicia oculto */
-}
-
-
-
-@keyframes pulse-animation {
-    0% {
-        transform: scale(1);
-        opacity: 0.5; /* Transparente al inicio */
-    }
-    50% {
-        transform: scale(1.5); /* Aumenta de tamaño */
-        opacity: 0.2; /* Más transparente en el medio */
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0; /* Vuelve a ser transparente */
-    }
-}
-
-/* Efecto de ondas */
-.wave {
-    position: absolute;
-    border-radius: 50%;
-    width: 100px; /* Ancho del efecto de onda */
-    height: 100px; /* Alto del efecto de onda */
-    background: radial-gradient(circle, rgba(255, 255, 255, 0) 40%, rgba(38, 38, 39, 0.3) 60%, rgba(0, 0, 0, 0.5) 100%);
-    animation: wave-animation 3s infinite; /* Animación de las ondas */
-    z-index: 1; /* Debajo del botón */
-}
-
-
-
-@keyframes wave-animation {
-    0% {
-        transform: scale(0);
-        opacity: 0; /* Invisible al inicio */
-    }
-    50% {
-        transform: scale(1);
-        opacity: 1; /* Visible al medio */
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0; /* Invisible al final */
-    }
-}
-
-.music-container {
-    display: flex;
-    align-items: center; /* Alinear verticalmente los elementos */
-    justify-content: center; /* Centrar el contenido */
-    position: relative; /* Para posicionar las ondas */
-    margin-top: 20px;
-}
-
-.wave {
-    position: absolute;
-    width: 50px; /* Reducido para mejor visualización */
-    height: 50px; /* Reducido para mejor visualización */
-    border-radius: 50%; /* Forma circular */
-    background: linear-gradient(135deg, rgba(108, 92, 231, 0.7), transparent); /* Degradado en color */
-    animation: wave-animation 1.5s infinite; /* Animación de ondas */
-    opacity: 0; /* Inicialmente ocultas */
-    display: none; /* Ocultas inicialmente */
-}
-
-.left-wave {
-    left: 10px; /* Posicionar a la izquierda */
-    animation-delay: 0.75s; /* Retraso en la animación de la onda izquierda */
-}
-
-.right-wave {
-    right: 10px; /* Posicionar a la derecha */
-    animation-delay: 0.75s; /* Retraso en la animación de la onda derecha */
-}
-
-@keyframes wave-animation {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.2);
-        opacity: 0.5;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 0;
-    }
-}
-
-/* Botón de reproducción */
-.play-pause-btn {
-    background-color: #6c5ce7; /* Color elegante */
+    background-color: #7ddc90;
     border: none;
     border-radius: 50%;
-    padding: 10px; /* Reducido para mejor visualización */
-    font-size: 20px; /* Reducido para mejor visualización */
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
     color: white;
     cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    z-index: 1; /* Asegurarse de que esté por encima de las ondas */
 }
 
-.play-pause-btn:hover {
-    background-color: #5a47c2;
-    transform: scale(1.1);
-}
-
-/* Cuenta regresiva */
-.countdown-container {
-    display: flex;
-    flex-direction: column; /* Alinear verticalmente */
-    align-items: center; /* Centrar horizontalmente */
+/* Estilo del botón de agendar */
+.agenda-btn {
     margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.countdown {
-    display: flex; /* Alinear los elementos horizontalmente */
-    justify-content: center; /* Centrar los elementos */
-    gap: 10px; /* Reducido espaciado entre elementos */
-    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+.agenda-btn:hover {
+    background-color: #483d8b;
+}
+
+/* Estilo de la cuenta regresiva */
+.countdown-container {
+    margin-top: 30px;
 }
 
 .countdown-item {
-    text-align: center; /* Alinear el texto al centro */
-}
-
-.countdown-item span {
-    display: block; /* Mostrar como bloque para el espaciado */
-    font-size: 24px; /* Tamaño de la fuente para el número en móvil */
-    font-weight: bold; /* Hacer el número más grueso */
-    letter-spacing: 3px; /* Reducido espaciado entre letras */
-}
-
-.countdown-item span:last-child {
-    font-size: 14px; /* Tamaño de la fuente para el texto de la unidad en móvil */
-}
-
-/* Estilo de texto de fecha */
-.fecha-container {
-    margin-top: 20px;
-}
-
-.fecha-text {
-    font-size: 24px; /* Tamaño de la fuente para la fecha */
-    color: #333; /* Color de la fecha */
-    margin-bottom: 20px;
-}
-
-/* Botón de agendar */
-.agendar-btn {
     display: inline-block;
-    background-color: #6c5ce7; /* Color del botón */
-    color: white; /* Color del texto */
-    padding: 8px 16px; /* Reducido para mejor visualización */
-    border-radius: 5px;
-    text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s ease;
+    font-size: 24px;
+    margin: 0 5px;
 }
 
-.agendar-btn:hover {
-    background-color: #5a47c2; /* Color del botón al pasar el mouse */
+.separator {
+    font-size: 30px;
+    margin: 0 10px;
 }
 
-/* Estilo de la ubicación */
-.ubicacion-container {
-    margin-top: 20px;
-    background-color: transparent; /* Asegúrate de que sea transparente */
-    padding: 10px; /* Puedes ajustar el relleno si es necesario */
-    border-radius: 10px; /* Ajusta el borde si quieres mantenerlo con bordes redondeados */
-
-    text-align: center; /* Centrar texto */
-}
-
-.ceremonia-titulo {
-    font-size: 28px; /* Tamaño de la fuente */
-    font-weight: bold; /* Negrita */
-    color: #6c5ce7; /* Color elegante */
-    margin-bottom: 10px; /* Espaciado inferior */
-}
-
-.ceremonia-hora,
-.ceremonia-lugar {
-    font-size: 20px; /* Tamaño de la fuente */
-    color: #333; /* Color del texto */
-    margin: 5px 0; /* Espaciado vertical */
-}
-
-.ceremonia-ubicacion {
-    display: inline-block; /* Hacerlo un botón */
-    background-color: #6c5ce7; /* Color del botón */
-    color: white; /* Color del texto */
-    padding: 8px 16px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    text-decoration: none; /* Sin subrayado */
-    margin-top: 15px; /* Espaciado superior */
-    transition: background-color 0.3s ease; /* Efecto de transición */
-}
-
-.ceremonia-ubicacion:hover {
-    background-color: #5a47c2; /* Color al pasar el mouse */
-}
-
-/* Estilo del icono de la ubicación */
-.ubicacion-container h3 i {
-    margin-right: 5px;
-}
-
-/* Media Queries para dispositivos móviles */
-@media (max-width: 600px) {
-    .countdown-item span {
-        font-size: 20px; /* Tamaño de la fuente para el número en móvil */
-    }
-    .countdown-item span:last-child {
-        font-size: 12px; /* Tamaño de la fuente para el texto de la unidad en móvil */
-    }
-    
-    .fecha-text {
-        font-size: 20px; /* Tamaño de la fuente para la fecha en móvil */
-    }
-    
-    .play-pause-btn {
-        padding: 8px; /* Botón más pequeño */
-        font-size: 18px; /* Tamaño de texto más pequeño */
-    }
-    
-    .agendar-btn, .ubicacion-btn, .ceremonia-ubicacion {
-        padding: 6px 12px; /* Botones más pequeños */
-    }
-
-    .ceremonia-hora, .ceremonia-lugar {
-        font-size: 18px; /* Tamaño de fuente más pequeño para móviles */
-    }
-
-    .ceremonia-titulo {
-        font-size: 24px; /* Tamaño de fuente más pequeño para móviles */
-    }
-}
-
-/* Media Queries para dispositivos más grandes */
-@media (min-width: 601px) {
-    .countdown-item span {
-        font-size: 24px; /* Tamaño de la fuente para el número en pantallas grandes */
-    }
-    .countdown-item span:last-child {
-        font-size: 14px; /* Tamaño de la fuente para el texto de la unidad en pantallas grandes */
-    }
-    
-    .fecha-text {
-        font-size: 24px; /* Tamaño de la fuente para la fecha en pantallas grandes */
-    }
-}
-
-/* Efecto de aparición */
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px); /* Los elementos comenzarán un poco abajo */
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0); /* Los elementos se moverán a su posición original */
-}
-
-.names-container {
-    display: flex; /* Usar flexbox para alinear los elementos */
-    justify-content: space-between; /* Distribuir espacio entre los elementos */
-    align-items: center; /* Alinear verticalmente */
-    font-size: 1.5em;
-    color: #7D7D7D;
-    font-style: italic;
-    width: 100%; /* Asegurar que el contenedor use todo el ancho disponible */
-}
-
-.name {
-    margin: 0; /* Eliminar margen para evitar espacio extra */
-}
-
-.left {
-    text-align: left; /* Alinear a la izquierda */
-    flex: 1; /* Permitir que ocupe el espacio necesario */
-}
-
-.center {
-    text-align: center; /* Centrar el ampersand */
-    flex: 0 0 auto; /* Mantener el tamaño del ampersand */
-}
-
-.right {
-    text-align: right; /* Alinear a la derecha */
-    flex: 1; /* Permitir que ocupe el espacio necesario */
-    text-align: right; /* Alinear el texto a la derecha */
-}
-
-.modal {
-    display: none; /* Ocultar por defecto */
-    position: fixed; /* Mantenerlo en la misma posición */
-    z-index: 1000; /* Asegurarse de que esté en la parte superior */
-    left: 0;
-    top: 0;
-    width: 100%; /* Tomar toda la pantalla */
-    height: 100%; /* Tomar toda la pantalla */
-    overflow: auto; /* Habilitar desplazamiento si es necesario */
-    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%; /* Ancho de la imagen en el modal */
-    height: auto; /* Mantener la proporción de la imagen */
-}
-
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: white; /* Color del icono de cerrar */
-    font-size: 40px; /* Tamaño del icono de cerrar */
-    font-weight: bold; /* Negrita */
-    transition: 0.3s; /* Transición suave */
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb; /* Color al pasar el mouse */
-    text-decoration: none; /* Sin subrayado */
-    cursor: pointer; /* Cambiar cursor al pasar por encima */
-}
-
-#caption {
-    margin: auto;
-    display: block;
-    text-align: center; /* Centrar texto */
-    color: white; /* Color del texto */
-    padding: 10px 0; /* Espaciado superior e inferior */
-}
-
-.foto-pequeña {
-    width: 100px; /* Ajusta el ancho como desees */
-    height: auto; /* Mantener la proporción */
-    margin: 0 10px; /* Espaciado horizontal entre las fotos */
-    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
-    border: 2px solid #ccc; /* Borde opcional para las fotos */
-    border-radius: 8px; /* Bordes redondeados opcionales */
-    transition: transform 0.2s; /* Transición suave al hacer hover */
-}
-
-.foto-pequeña:hover {
-    transform: scale(1.1); /* Aumentar el tamaño al pasar el mouse */
-}
-
-
-.text-overlay {
-    position: absolute;
-    top: 20px; /* Ajusta este valor para mover el texto verticalmente */
-    width: 100%;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-style: italic;
-    color: #7D7D7D; /* Gris personalizado */
-}
-
-.names-container {
+/* Contenedor de ubicaciones */
+.ubicacion {
     display: flex;
-    justify-content: center; /* Centra los nombres horizontalmente */
-    align-items: baseline; /* Alinea los nombres a la línea de base */
-    font-size: 1.5em;
-    color: #7D7D7D;
-    font-style: italic;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
 }
 
-.names-container span {
-    margin: 0 10px; /* Ajusta el margen lateral entre los nombres */
-}
-
-.ampersand {
-    font-size: 2em; /* Aumenta el tamaño del ampersand */
-}
-
-.imagen-pareja {
-    width: 100%;
+/* Estilo de las imágenes de las ubicaciones */
+.foto-ubicacion {
+    width: 100px; /* Tamaño inicial más pequeño */
     height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, width 0.3s ease;
 }
 
-
-
-.ubicacion-container {
-    margin-top: 40px; /* Ajusta este valor según la distancia deseada */
-    text-align: center; /* Centra el texto y los elementos dentro del contenedor */
+.foto-ubicacion.zoomed {
+    transform: scale(2); /* Zoom aumentado a 2x */
+    z-index: 10; /* Para asegurarse de que esté al frente */
+    position: relative; /* Para mantener la posición en el contenedor */
 }
 
+/* Estilo del texto de ubicaciones */
+.ubicacion-texto {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Estilo del botón de ubicaciones */
 .ubicacion-btn {
-    display: flex;
-    flex-direction: column; /* Coloca el ícono y el texto en vertical */
-    align-items: center; /* Centra el contenido del botón */
-    justify-content: center;
+    display: inline-block;
     padding: 10px 15px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; /* Botón circular */
-    background-color: #6c5ce7; /* Color del botón */
-    color: #fff;
+    background-color: #7ddc90;
+    color: white;
+    border-radius: 15px;
     text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para el botón */
-    margin: 20px auto; /* Centra el botón horizontalmente */
-}
-
-.ubicacion-btn i {
-    font-size: 24px; /* Tamaño del ícono */
-    margin-bottom: 5px; /* Espacio entre el ícono y el texto */
-}
-
-.ubicacion-btn span {
-    font-size: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .ubicacion-btn:hover {
-    background-color: #5a4ab5;
+    background-color: #48c9b0;
+    transform: scale(1.05);
 }
 
-.ubicacion-fiesta-container {
-    margin-top: 60px; /* Para añadir más espacio debajo de la ubicación de la ceremonia */
-    text-align: center; /* Centra los elementos dentro del contenedor de la fiesta */
-}
-
-.fiesta-container {
-    display: flex;
-    justify-content: center; /* Centra las imágenes horizontalmente */
-    gap: 20px; /* Espacio entre las imágenes */
-}
-
-.foto-pequeña {
-    width: 150px;
-    height: auto;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.foto-pequeña:hover {
-    transform: scale(1.05); /* Efecto hover en las imágenes */
-}
-
-
-.ubicacion-flexbox {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Espacia los elementos a izquierda y derecha */
-    text-align: center;
-    margin-top: 20px;
-}
-
-.ubicacion-flexbox img {
-    width: 150px; /* Tamaño de las imágenes */
-    height: auto;
-    cursor: pointer;
-}
-
-.ubicacion-btn {
-    display: inline-block;
+/* Estilo del botón de confirmación */
+.confirm-btn {
     padding: 10px 20px;
-    background-color: #6c5ce7; /* Color de fondo */
+    background-color: #6a5acd;
     color: white;
+    font-size: 18px;
+    border: none;
     border-radius: 5px;
-    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.confirm-btn:hover {
+    background-color: #483d8b;
+}
+
+
+/* Estilo del botón de confirmación y enlace de Excel */
+.confirm-btn {
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     text-decoration: none;
-    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-.ubicacion-btn i {
-    display: block;
-    font-size: 24px;
-    margin-bottom: 5px;
+.confirm-btn:hover {
+    background-color: #483d8b;
 }
 
-
-/* Ajuste para que la página se vea bien en pantallas pequeñas */
-@media screen and (max-width: 768px) {
-    .names-container {
-        font-size: 1.2em; /* Ajustar tamaño de fuente en pantallas pequeñas */
-    }
-
-    .countdown-item span {
-        font-size: 20px; /* Reducir el tamaño del número en pantallas pequeñas */
-    }
-
-    .countdown-item span:last-child {
-        font-size: 12px; /* Reducir el tamaño del texto de la unidad */
-    }
-
-    .agendar-btn {
-        padding: 6px 12px; /* Reducir el tamaño del botón de agendar en móviles */
-        font-size: 14px;
-    }
-
-    .separador {
-        width: 60%; /* Hacer el separador más largo en pantallas pequeñas */
-    }
-
-    .ubicacion-btn {
-        font-size: 14px; /* Ajustar el tamaño de la fuente del botón de ubicación */
-        padding: 8px 12px;
-    }
-
-    .ubicacion-container {
-        margin-top: 15px;
-    }
-
-    .music-container {
-        margin-top: 10px;
-    }
+/* Estilo del botón de confirmación y enlace de Excel */
+.confirm-btn {
+    padding: 10px 20px;
+    background-color: #6a5acd;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
 }
 
-@media only screen and (max-width: 600px) {
-    .your-image-class {
-        width: 100%;
-        height: auto;
-    }
-
-    .your-button-class {
-        width: 100%; /* Ajusta el ancho del botón */
-        margin: 10px 0; /* Añade espacio alrededor del botón */
-    }
-
-    /* Espaciado de los contenedores */
-    .section-class {
-        padding: 20px; /* Espacio para que no se vea tan amontonado */
-    }
+.confirm-btn:hover {
+    background-color: #483d8b;
 }
-@media only screen and (max-width: 600px) {
-    .countdown-text {
-        font-size: 1.2em; /* Reduce el tamaño de las letras */
-    }
-
-    .countdown-number {
-        font-size: 2.5em; /* Reduce el tamaño de los números */
-        margin-bottom: 5px; /* Añade espacio entre los números y el texto */
-    }
-}
-@media only screen and (max-width: 600px) {
-    .button-container {
-        display: flex;
-        flex-direction: column; /* Cambia la dirección de los botones a vertical */
-        align-items: center; /* Centra los botones */
-    }
-}
-
-.audio-container {
-    position: relative;
-    display: inline-block; /* Ajusta según necesites */
-}
-
-.waves {
-    display: none; /* Oculto por defecto */
-    position: absolute;
-    top: 100%; /* Coloca las ondas justo debajo del botón */
-    left: 0;
-    width: 100%;
-    height: 50px; /* Ajusta la altura según tu diseño */
-    background: url('ruta_de_tu_imagen_de_ondas') no-repeat center;
-    background-size: cover; /* Asegúrate de que la imagen de ondas se ajuste */
-    /* Agrega más estilos según necesites */
-}
-
